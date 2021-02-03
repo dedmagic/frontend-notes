@@ -1,1 +1,2 @@
-# frontend-theory
+# Фронтенд: заметки по теории
+## JavaScript
