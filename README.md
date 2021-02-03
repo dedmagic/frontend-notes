@@ -1,4 +1,4 @@
 # Фронтенд: заметки по теории
 ## JavaScript
 
-[Оператор spread](JavaScript/spread "spread")
+[Оператор spread](JavaScript/spread.md "spread")
