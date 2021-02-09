@@ -1,8 +1,8 @@
 # Фронтенд: заметки по теории
 ## JavaScript
 
-[Объект "console"](JavaScript/console.md "console")
+[Объект "console"](notes/JavaScript/console.md "console")
 
-[Оператор расширения (spread)](JavaScript/spread.md "spread")
+[Оператор расширения (spread)](notes/JavaScript/spread.md "spread")
 
-[Прочие параметры (rest)](JavaScript/rest.md "rest")
+[Прочие параметры (rest)](notes/JavaScript/rest.md "rest")
