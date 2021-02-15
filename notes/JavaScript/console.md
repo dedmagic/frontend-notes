@@ -26,7 +26,7 @@
 
 `console.group('group name')` – начинает группировку, `console.groupCollapsed('group name')` – то же, но группа изначально свёрнута
 
-`console.groupEnd('group name')` – заканчивает группировку; группы могут быть вложенными
+`console.groupEnd()` – заканчивает группировку; группы могут быть вложенными
 
 Пример:
 ```javascript
