@@ -41,5 +41,14 @@ const part2 = { id: 96, password: 'Password!' };
 const user1 = { ...part1, ...part2 };
 console.log(user1); //=> { id: 96, name: 'Howard Moon', password: 'Password!' }
 ```
++ Изменение иммутабельных объектов путём создания изменённой копии
+```javascript
+let original = {
+    someProperty: "oldValue",
+    someOtherProperty: 42
+};
+let updated = {...original, someProperty: "newValue"};
+console.log(updated); // => { someProperty: 'newValue', someOtherProperty: 42 }
+```
 ## Строки
 Преобразование строки в массив символов: `let chars = [...str]`
