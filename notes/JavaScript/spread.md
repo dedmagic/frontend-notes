@@ -14,6 +14,17 @@ let firstArray = ["A", "B", "C"];
 let secondArray = ["X", ...firstArray, "Y", "Z"];
 // вторым массивом будет [ "X", "A", "B", "C", "Y", "Z" ]
 ```
++ Разворачивание массива при передаче в функцию:
+```javascript
+let myArray = [1, 2, 3];
+function doSomething(first, second, third) {
+    // ...
+}
+// можно так:
+doSomething(myArray[0], myArray[1], myArray[2]);
+// но лучше так:
+doSomething(...myArray);
+```
 ## Объекты
 + Клонирование объекта: `let objCopy = { ...obj }` (примечание: копия поверхностная; прототип не копируется)
 + Клонирование с добавлением свойства:
