@@ -61,12 +61,12 @@ let user2 = {
     quotes: ["I've got a bad feeling about this..."]
 };
 
-const setDefaults = ({ quotes = [], ...object}) =>
-({ ...object, quotes })
+const setDefaults = ({ quotes = [], ...object}) => ({ ...object, quotes });
 
 user1 = setDefaults(user1);
 console.log(user1);
 //=> { id: 200, name: 'Vince Noir', quotes: [] }
+
 user2 = setDefaults(user2);
 console.log(user2);
 //=> {
