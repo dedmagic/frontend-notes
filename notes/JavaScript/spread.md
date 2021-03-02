@@ -26,6 +26,8 @@ doSomething(myArray[0], myArray[1], myArray[2]);
 // но лучше так:
 doSomething(...myArray);
 ```
+## Строки
+
 ## Объекты
 + Клонирование объекта: `let objCopy = { ...obj }` (примечание: копия поверхностная; прототип не копируется)
 + Клонирование с добавлением свойства:
@@ -62,5 +64,36 @@ let original = {
 let updated = {...original, someProperty: "newValue"};
 console.log(updated); // => { someProperty: 'newValue', someOtherProperty: 42 }
 ```
-## Строки
-Преобразование строки в массив символов: `let chars = [...str]`
+## Преобразование итерируемых объектов в массив
+Строка → массив символов
+```javascript
+const str = 'Hello world!';
+let chars = [...str];
+console.log(chars); // ['H', 'e', 'l', 'l', 'o', ' ', 'w', 'o', 'r', 'l', 'd', '!']
+```
+Set → массив
+```javascript
+const mySet = new Set([1, 2, 3]);
+const arr = [...mySet];
+console.log(arr); // [1, 2, 3]
+```
+Map → массив
+```javascript
+const myMap = new Map([[1, 'one'], [2, 'two']]);
+const arr = [...myMap]
+console.log(arr); // [ [ 1, 'one' ], [ 2, 'two' ] ]
+```
+NodeList → массив
+```javascript
+// const nodeList = document.querySelectorAll('div');
+const arr = [ ...document.querySelectorAll('div') ];
+console.log(arr); // [ div, div, div]
+```
+## Разница между `Array.from` и `spread`
+```javascript
+Array.from('hi') // ['h', 'i']
+Array.from(new Set([1,2,3])) // [1, 2, 3]
+Array.from(new Map([[1, 'one']])) // [[1, 'one']]
+Array.from(document.querySelectorAll('div')) // [ div, div, div]
+```
+`Array.from` работает для итерируемых и массивоподобных объектов, `spread` – только для итерируемых
