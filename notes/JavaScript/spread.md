@@ -84,7 +84,7 @@ console.log(arr); // [ [ 1, 'one' ], [ 2, 'two' ] ]
 NodeList → массив
 ```javascript
 // const nodeList = document.querySelectorAll('div');
-const arr = [ ...document.querySelectorAll('div') ];
+const arr = [...document.querySelectorAll('div')];
 console.log(arr); // [ div, div, div]
 ```
 ## Разница между `Array.from` и `spread`
