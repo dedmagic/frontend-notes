@@ -53,14 +53,22 @@ console.groupEnd();
 `console.time('timer name')` – запускает именованный таймер; может быть запущено сразу несколько разных  
 `console.timeEnd('timer name')` – останавливает таймер и выводит длительность работы таймера в милисекундах
 
+![таймер](img/console06.png)
+![таймер](img/console07.png)
 ----
-
-
-## TODO:
-`debugger` – точка останова (breakpoint)  
-`debug('message')` – выводит сообщение в консоль; если передать объект, он преобразуется в строку  
-`assert(condition, 'message')` – если `condition === false`, выводит в консоль сообщение  
 `dir(object)` – визуализирует объект в консоли  
 `dirxml(object)` – визуализирует объект в консоли как XML  
-`select(element)` – выбирает элемент в DOM  
-`profile('reportName')`, `profileEnd()` – ???
+
+Примечание: принципиальных отличий от `console.log` не обнаружено
+
+----
+`assert(condition, 'message')` – если `condition === false`, выводит в консоль сообщение  
+
+![таймер](img/console08.png)
+----
+
+## TODO:
+- `debugger` – точка останова (breakpoint)  
+- `debug('message')` – выводит сообщение в консоль; если передать объект, он преобразуется в строку (примечание: вроде метод не нативный, надо подключать библиотеку)  
+- `select(element)` – выбирает элемент в DOM  
+- `profile('reportName')`, `profileEnd()` – ??? (что-то связанное с оптимизацией)
