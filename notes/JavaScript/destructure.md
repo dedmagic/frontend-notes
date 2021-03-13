@@ -54,7 +54,7 @@ for (let [key, value] of Object.entries(fred)) {
 // age = 42
 ```
 
-// Деструктуризация пары "ключ - значение": массив
++ Деструктуризация пары "ключ - значение": массив
 ```javascript
 const array = ['один', 'два', 'три', 'четыре'];
 
@@ -107,28 +107,6 @@ console.log(b, d, e); // 2 4 96
 //console.log(b, d, e); // 2 4 undefined
 ```
 
-+ Деструктуризация вложенных объектов (можно и для массивов)
-```javascript
-const student = {
-    name: 'John Doe',
-    age: 16,
-    scores: {
-        maths: 74,
-        english: 63,
-        science: 85
-    }
-};
-
-function displaySummary({ name, scores: { maths = 0, english = 0, science = 0 } }){
-    console.log(`Hello, ${name}`);
-    console.log(`Your Maths score is ${maths}`);
-    console.log(`Your English score is ${english}`);
-    console.log(`Your Science score is ${science}`);
-}
-
-displaySummary(student);
-```
-
 + Функции: именованные параметры и значения по умолчанию
 ```javascript
 function print_person_bad (name, profession, age, weight) {
@@ -161,4 +139,26 @@ function print_person_very_good ( { name, profession = 'Programmer', age = 18, w
 }
 
 print_person_very_good ( { name: 'Smith', age: 50, weight: 60 })
+```
+
++ Деструктуризация вложенных объектов (можно и для массивов)
+```javascript
+const student = {
+    name: 'John Doe',
+    age: 16,
+    scores: {
+        maths: 74,
+        english: 63,
+        science: 85
+    }
+};
+
+function displaySummary({ name, scores: { maths = 0, english = 0, science = 0 } }){
+    console.log(`Hello, ${name}`);
+    console.log(`Your Maths score is ${maths}`);
+    console.log(`Your English score is ${english}`);
+    console.log(`Your Science score is ${science}`);
+}
+
+displaySummary(student);
 ```
