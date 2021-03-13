@@ -55,6 +55,7 @@ console.groupEnd();
 
 ![таймер](img/console06.png)
 ![таймер](img/console07.png)
+
 ----
 `dir(object)` – визуализирует объект в консоли  
 `dirxml(object)` – визуализирует объект в консоли как XML  

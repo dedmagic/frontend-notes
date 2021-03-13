@@ -15,7 +15,26 @@ function doSomething(first, second, ...rest) {
 Примечание 1: если передать меньше трёх параметров, то `rest` будет пустым массивом  
 Примечание 2: в отличие от `arguments`, работает в стрелочных функциях
 
-+ Удаление свойства из объекта (с использованием деструктуризации)
++ "Shift" нескольких значений (извлечение из массива первых нескольких элементов с одновременным их удалением из массива)
+```javascript
+let myArray = [1, 2, 3, 4, 5];
+let [a, b, c, ...d] = myArray;
+console.log(a); // 1
+console.log(b); // 2
+console.log(c); // 3
+console.log(d); // [4, 5]
+```
+
++ Получение конкрентых свойств и сбор оставшихся в новый объект
+```javascript
+let myObject = { a: 1, b: 2, c: 3, d: 4};
+let { b, d, ...other } = myObject;
+console.log(b); // 2
+console.log(d); // 4
+console.log(other); // { a: 1, c: 3 }
+```
+
++ Удаление свойства из объекта
 ```javascript
 const user = {
     id: 100,
@@ -29,7 +48,7 @@ const userWithoutPassword = deletePassword(user);
 console.log(userWithoutPassword);  //=> { id: 100, name: 'Howard moon' }
 ```
 
-+ Динамическое удаление свойства (с использованием деструктуризации)
++ Динамическое удаление свойства
 ```javascript
 let user1 = {
     id: 100,
@@ -48,6 +67,7 @@ console.log(user2); //=> { id: 100, name: 'Howard Moon' }
 const user3 = removeId(user1);
 console.log(user3); //=> { name: 'Howard Moon', password: 'Password!' }
 ```
+
 + Добавление свойства, только если оно отсутствует у объекта (дефолтное свойство):
 ```javascript
 let user1 = {

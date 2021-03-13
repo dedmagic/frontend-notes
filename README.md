@@ -4,7 +4,7 @@
 
 [Прочие параметры (rest)](notes/JavaScript/rest.md "rest") ✔️
 
-[Деструктуризация](notes/JavaScript/destructure.md "destructure")
+[Деструктуризация](notes/JavaScript/destructure.md "destructure") ✔️
 
 ## Tools
 [Объект "console"](notes/Tools/console.md "console")
