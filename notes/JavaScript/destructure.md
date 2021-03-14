@@ -37,21 +37,23 @@ console.log(a, b);
 
 + Разбиение строки на слова
 ```javascript
-let [firstName, surname] = "Phil Collins".split(' ');
+let [firstName, surname] = "Mark Knopfler".split(' ');
 console.log(firstName);
 console.log(surname);
 ```
 
+## Key - Value (в цикле)
+
 + Деструктуризация пары "ключ - значение"
 ```javascript
-const fred = { name: 'Fred', age: 42 };
-console.log(Object.entries(fred)); // [ [ 'name', 'Fred' ], [ 'age', 42 ] ]
+const mark = { name: 'Mark', age: 71 };
+console.log(Object.entries(mark)); // [ [ 'name', 'Mark' ], [ 'age', 71 ] ]
 
-for (let [key, value] of Object.entries(fred)) {
+for (let [key, value] of Object.entries(mark)) {
     console.log(`${key} = ${value}`);
 }
-// name = Fred
-// age = 42
+// name = Mark
+// age = 71
 ```
 
 + Деструктуризация пары "ключ - значение": массив
@@ -61,6 +63,19 @@ const array = ['один', 'два', 'три', 'четыре'];
 for(const [index, element] of array.entries()) {
     console.log(`array[${index}] = ${element}`)
 }
+```
+
++ Деструктуризация пары "ключ - значение": словарь
+```javascript
+let user = new Map();
+user.set("name", "Mark");
+user.set("age", "71");
+
+for (let [key, value] of user) {
+  alert(`${key} = ${value}`);
+}
+ // name = Mark
+ // age = 71
 ```
 
 ## Объекты
@@ -107,6 +122,27 @@ console.log(b, d, e); // 2 4 96
 //console.log(b, d, e); // 2 4 undefined
 ```
 
++ В качестве значений по умолчанию могут быть любые выражения, даже вызовы функций
+```javascript
+// prompt запустится только для surname
+let [name = prompt('name?'), surname = prompt('surname?')] = ["Mark"];
+
+console.log(name);    // Mark (из массива)
+console.log(surname); // результат prompt
+
+```
+
++ Можно совмещать переименование и значения по умолчанию
+```javascript
+let myObject = {
+    a: 1,   
+    d: 4
+};
+
+let { a: newA = 1, b: newB = 42, c: newC = 96 } = myObject;
+console.log(newA, newB, newC); // 1 42 96
+```
+
 + Функции: именованные параметры и значения по умолчанию
 ```javascript
 function print_person_bad (name, profession, age, weight) {
@@ -141,6 +177,39 @@ function print_person_very_good ( { name, profession = 'Programmer', age = 18, w
 print_person_very_good ( { name: 'Smith', age: 50, weight: 60 })
 ```
 
++ Вызов функции со всеми параметрами по умолчанию
+
+Если у функции заданы значения по умолчанию для всех параметров
+```javascript
+function print_person_bad ( { name = 'Mark', profession = 'Musician', age = 71 }) {
+    console.log(name);
+    console.log(profession);
+    console.log(age);
+    console.log('-----------');
+}
+```
+, то вызвать её совсем без параметров нельзя, вот такой вызов завершится с ошибкой:
+```javascript
+print_person_bad(); // Упадёт с ошибкой
+```
+Т.к. функция ждёт на входе объект,  вызов придётся делать следующим образом:
+```javascript
+print_person_bad({});
+```
+Чтобы избежать этой пробелемы, для единственного параметра функции – объекта – тоже можно задать значение по умолчанию:
+```javascript
+function print_person_good ( { name = 'Mark', profession = 'Musician', age = 71 } = {}) {
+    console.log(name);
+    console.log(profession);
+    console.log(age);
+    console.log('-----------');
+}
+
+print_person_good(); // Корректный вызов
+```
+
+
+
 + Деструктуризация вложенных объектов (можно и для массивов)
 ```javascript
 const student = {
@@ -162,3 +231,29 @@ function displaySummary({ name, scores: { maths = 0, english = 0, science = 0 } 
 
 displaySummary(student);
 ```
+
++ Деструктуризация из массива в объект
+```javascript
+const { 3: x, 4: y } = [1, 2, 3, 4, 5];
+console.log(x, y); // 4, 5
+```
+
++ Деструктуризация в ранее объявленные переменные
+```javascript
+let a, b, c, x, y, z;
+
+[a, b, c] = [1, 2, 3];
+({x, y, z} = { x: 4, y: 5, z: 6 }); // Скобки обязательны!
+
+console.log(a, b, c, x, y, z); // 1 2 3 4 5
+```
+При деструктуризации объекта в существующие переменные обязательно заключать всё присваивание в круглые скобки, иначе синтаксический анализатор примет фигурную скобку в начале за начало составного оператора.
+
++ Деструктурировать можно не только в переменные, подойдёт любое `l-value`, например, свойство объекта или элемент массива
+```javascript
+let user = {};
+[user.name, user.surname] = "Mark Knopfler".split(' ');
+alert(user.name); // Mark
+```
+
+
