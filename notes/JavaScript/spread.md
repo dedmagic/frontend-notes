@@ -26,6 +26,14 @@ doSomething(myArray[0], myArray[1], myArray[2]);
 // но лучше так:
 doSomething(...myArray);
 ```
+
++ Нахождение максимального элемента массива
+```javascript
+const arr = [13, 7, 42, 28];
+const max_element = Math.max(...arr);
+console.log(max_element); // 42
+```
+
 ## Объекты
 + Клонирование объекта: `let objCopy = { ...obj }` (примечание: копия поверхностная; прототип не копируется)
 + Клонирование с добавлением свойства:
