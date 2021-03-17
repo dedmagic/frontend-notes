@@ -35,6 +35,12 @@ console.log(a, b);
 console.log(a, b);
 ```
 
++ Присваивание значения нескольким переменным (ИМХО – отстой, не надо так)
+```javascript
+let [test1, test2, test3] = [1, 2, 3];
+```
+
+
 + Разбиение строки на слова
 ```javascript
 let [firstName, surname] = "Mark Knopfler".split(' ');
