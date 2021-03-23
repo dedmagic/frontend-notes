@@ -70,7 +70,7 @@ console.log(trueOnly); // [42, true, "foo bar"]
 + Поиск элемента в массиве (**find**)
 ```javascript
 const arr = [
-  { name: 'Denis', weight: 70, iq: 130 },
+  { name: 'Den', weight: 70, iq: 130 },
   { name: 'Andrew', weight: 60, iq: 120 },
   { name: 'Korepanych', weight: 135, iq: -200 },
 ];
@@ -123,11 +123,11 @@ console.log(arr);
 + Использование сортировки в цепочках (**sort**)
 ```javascript
 const cities = [
-    {name: 'Kaliningrad', population: 482443},
-    {name: 'Moscow', population: 12506468},
-    {name: 'Novosibirsk', population: 1612833},
-    {name: 'Saint Petersburg', population: 5351935},
-    {name: 'Kaluga', population: 336726}
+    { name: 'Kaliningrad', population: 482443 },
+    { name: 'Moscow', population: 12506468 },
+    { name: 'Novosibirsk', population: 1612833 },
+    { name: 'Saint Petersburg', population: 5351935 },
+    { name: 'Kaluga', population: 336726 }
 ];
 
 cities.filter(e => e.population < 1000000)
@@ -160,7 +160,7 @@ if ([1, 'one', 2, 'two'].indexOf(value) >= 0) {
 }
 
 // Короткая запись №2
-if ([1, 'one', 2, 'two'].includes(value)){ 
+if ([1, 'one', 2, 'two'].includes(value)) { 
     console.log('do something');
 }
 ```
