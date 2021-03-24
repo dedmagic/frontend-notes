@@ -1,5 +1,13 @@
 # Объект console
 
+Приём: при выводе с помощью `console.log` "заворачивать" выводимое значение в объект – тогда значение выведется вместе с именем.
+
+```javascript
+let name = 'Mark Knopfler';
+console.log(name); // Mark Knopfler
+console.log({name}); // { name: 'Mark Knopfler' }
+```
+---
 `console.clear()` – очистка консоли
 
 `console.error(текст)` – выводит сообщение красным цветом с красной иконкой  
