@@ -1,5 +1,10 @@
 # Фронтенд: заметки по теории
+## Качество кода
+[Правила гигиены при фронтенд-разработке](notes/JavaScript/hygiene.md "hygiene")
+
 ## JavaScript
+[Правила гигиены при фронтенд-разработке](notes/JavaScript/hygiene.md "hygiene")
+
 [Оператор расширения (spread)](notes/JavaScript/spread.md "spread") ✔️➕
 
 [Прочие параметры (rest)](notes/JavaScript/rest.md "rest") ✔️
