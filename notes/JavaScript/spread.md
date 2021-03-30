@@ -36,6 +36,7 @@ console.log(max_element); // 42
 
 ## Объекты
 + Клонирование объекта: `let objCopy = { ...obj }` (примечание: копия поверхностная; прототип не копируется)
+
 + Клонирование с добавлением свойства:
 ```javascript
 const user = { id: 100, name: 'Howard Moon'};
@@ -44,6 +45,7 @@ const userWithPass = { ...user, password: 'Password!' };
 console.log(user); //=> { id: 100, name: 'Howard Moon' }
 console.log(userWithPass); //=> { id: 100, name: 'Howard Moon', password: 'Password!' }
 ```
+
 Пример 2. Добавление нескольких свойств:
 ```javascript
 const partial = { id: 42, name: 'Howard Moon' };
@@ -61,6 +63,7 @@ const part2 = { id: 96, password: 'Password!' };
 const user1 = { ...part1, ...part2 };
 console.log(user1); //=> { id: 96, name: 'Howard Moon', password: 'Password!' }
 ```
+
 + Изменение иммутабельных объектов путём создания изменённой копии
 ```javascript
 let original = {
@@ -70,6 +73,7 @@ let original = {
 let updated = {...original, someProperty: "newValue"};
 console.log(updated); // => { someProperty: 'newValue', someOtherProperty: 42 }
 ```
+
 ## Преобразование итерируемых объектов в массив
 Строка → массив символов
 ```javascript
@@ -95,6 +99,7 @@ NodeList → массив
 const arr = [...document.querySelectorAll('div')];
 console.log(arr); // [ div, div, div]
 ```
+
 ## Разница между `Array.from` и `spread`
 ```javascript
 Array.from('hi') // ['h', 'i']

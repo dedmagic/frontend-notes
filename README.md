@@ -11,7 +11,7 @@
 
 [Деструктуризация](notes/JavaScript/destructure.md "destructure") ✔️➕
 
-[Изменение структуры объекта](notes/JavaScript/change_object_structure.md "change object structure") ✔️
+[Изменение структуры объекта (spread, rest)](notes/JavaScript/change_object_structure.md "change object structure") ✔️
 
 [Методы массивов](notes/JavaScript/array_methods.md "array methods") ✔️➕
 
