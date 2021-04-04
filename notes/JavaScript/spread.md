@@ -34,6 +34,17 @@ const max_element = Math.max(...arr);
 console.log(max_element); // 42
 ```
 
++ Добавление элемента в начало/конец массива
+```javascript
+const arr = [1, 2, 3, 4];
+const arr1 = [...arr, 42]; // "push"
+const arr2 = [42, ...arr]; // "unshift"
+
+console.log(arr1); // [ 1, 2, 3, 4, 42 ]
+console.log(arr2); // [ 42, 1, 2, 3, 4 ]
+console.log(arr); // [ 1, 2, 3, 4 ]
+```
+
 ## Объекты
 + Клонирование объекта: `let objCopy = { ...obj }` (примечание: копия поверхностная; прототип не копируется)
 
