@@ -62,7 +62,6 @@ function tdz_closure() {
 ```javascript
 // var: scope == function
 function scope_var() {
-    console.log('*** scope_var ***');
     console.log({ a }); // undefined
     {
         console.log({ a }); // undefined
@@ -74,7 +73,6 @@ function scope_var() {
 
 // let: scope == block
 function scope_let() {
-    console.log('*** scope_let ***');
     // console.log({ a }); // ReferenceError: a is not defined
     {
         // console.log({ a }); // ReferenceError: Cannot access 'a' before initialization
