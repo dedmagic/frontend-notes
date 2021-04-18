@@ -17,7 +17,7 @@
 
 [Методы массивов](notes/JavaScript/array_methods.md "array methods") ✔️➕
 
-[Set, Map, WeakSet, WeakMap](notes/JavaScript/set_map_weak.md "Set, Map, WeakSet, WeakMap") ✔️➕
+[Set, Map, WeakSet, WeakMap](notes/JavaScript/set_map_weak.md "Set, Map, WeakSet, WeakMap") ✔️
 
 ## Tools
 [Объект "console"](notes/Tools/console.md "console") ➕
