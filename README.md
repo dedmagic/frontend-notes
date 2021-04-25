@@ -11,13 +11,13 @@
 
 [Деструктуризация](notes/JavaScript/destructure.md "destructure") ✔️➕
 
-[Операторы циклов `for` в JavaScript](notes/JavaScript/for.md "for") ✔️
+[Операторы циклов `for` в JavaScript](notes/JavaScript/for.md "for") ✔️➕
 
 [Изменение структуры объекта (spread, rest)](notes/JavaScript/change_object_structure.md "change object structure") ✔️
 
 [Методы массивов](notes/JavaScript/array_methods.md "array methods") ✔️➕
 
-[Set, Map, WeakSet, WeakMap](notes/JavaScript/set_map_weak.md "Set, Map, WeakSet, WeakMap") ✔️
+[`Set`, `Map`, `WeakSet`, `WeakMap`](notes/JavaScript/set_map_weak.md "Set, Map, WeakSet, WeakMap") ✔️
 
 ## Tools
 [Объект "console"](notes/Tools/console.md "console") ➕
