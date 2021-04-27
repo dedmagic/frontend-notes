@@ -197,4 +197,4 @@ console.log(map2.entries());
 * Нельзя перебрать с помощью `for..of` или `forEach`, нет методов `keys()`, `values()`, `entries()`
 * Нет метода `clear()`
 
-Т.е. есть только запись в множество (`add`, `delete`) и чтение (`has`, `get`).
+Т.е. есть только запись (`add`, `delete`) и чтение (`has`, `get`).
