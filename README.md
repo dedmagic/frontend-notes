@@ -21,5 +21,7 @@
 
 [Функции в JavaScript](notes/JavaScript/functions.md "functions") ✔️➕
 
+[Значения `null` и `undefined`](notes/JavaScript/null_undefined.md "null & undefined") ✔️➕
+
 ## Tools
 [Объект "console"](notes/Tools/console.md "console") ➕
