@@ -19,7 +19,7 @@
 
 [`Set`, `Map`, `WeakSet`, `WeakMap`](notes/JavaScript/set_map_weak.md "Set, Map, WeakSet, WeakMap") ✔️➕
 
-[Функции в JavaScript](notes/JavaScript/functions.md "functions") ✔️
+[Функции в JavaScript](notes/JavaScript/functions.md "functions") ✔️➕
 
 ## Tools
 [Объект "console"](notes/Tools/console.md "console") ➕
