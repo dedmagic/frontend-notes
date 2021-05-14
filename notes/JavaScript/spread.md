@@ -75,6 +75,26 @@ const user1 = { ...part1, ...part2 };
 console.log(user1); //=> { id: 96, name: 'Howard Moon', password: 'Password!' }
 ```
 
+Пример. Этот приём можно использовать для задания настроек по умолчанию:
+```javascript
+const unsafeOptions = {
+    fontSize: 18
+};
+
+const defaults = {
+    fontSize: 16,
+    color: 'black'
+};
+
+const options = {
+    ...defaults,
+    ...unsafeOptions
+};
+
+console.log(options.fontSize); // => 18
+console.log(options.color);    // => 'black'
+```
+
 + Изменение иммутабельных объектов путём создания изменённой копии
 ```javascript
 let original = {
