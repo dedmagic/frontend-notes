@@ -5,8 +5,11 @@
 ```javascript
 let name = 'Mark Knopfler';
 console.log(name); // Mark Knopfler
-console.log({name}); // { name: 'Mark Knopfler' }
+console.log({ name }); // { name: 'Mark Knopfler' }
 ```
+
+Можно так: `console.log({ x , y });` или так: `console.log({ x }, { y });`.
+
 ---
 `console.clear()` – очистка консоли
 
@@ -16,7 +19,21 @@ console.log({name}); // { name: 'Mark Knopfler' }
 
 ![console.error & console.warn](img/console01.png)
 
-`console.trace()` – выводит стек вызова
+Есть ещё `console.debug(текст)` – как работает, не очень понятно: в FF так же, как и `console.log`, в Google Chrome вообще ничего не вывелось. Но участвует в фильтрации сообщений (см. ниже).
+
+Сообщения в консоли можно фильтровать по уровню (info, warn, debug, ...). На скриншоте FF rus и Google Chrom eng:
+
+![фильтрация](img/console10.png)
+
+`dir(object)` – визуализирует объект в консоли; элементы DOM `console.log` отображает как HTML (разметка), а `console.dir` как JavaScript-объекты.   
+`dirxml(object)` – визуализирует объект в консоли как XML; отличий `dirxml` от `console.log` не обнаружено.  
+
+----
+
+`console.trace()` – выводит стек вызова  
+`console.memory` – показывает состояние памяти (внимание: свойство, а не метод)
+
+![console.memory](img/console09.png)
 
 ----
 
@@ -65,12 +82,7 @@ console.groupEnd();
 ![таймер](img/console07.png)
 
 ----
-`dir(object)` – визуализирует объект в консоли  
-`dirxml(object)` – визуализирует объект в консоли как XML  
 
-Примечание: принципиальных отличий от `console.log` не обнаружено
-
-----
 `assert(condition, 'message')` – если `condition === false`, выводит в консоль сообщение  
 
 ![таймер](img/console08.png)

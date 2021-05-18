@@ -24,4 +24,6 @@
 [Значения `null` и `undefined`](notes/JavaScript/null_undefined.md "null & undefined") ✔️➕
 
 ## Tools
-[Объект "console"](notes/Tools/console.md "console") ➕
+[Объект `console`](notes/Tools/console.md "console") ➕
+
+[Console API](notes/Tools/console_api.md "console api") ➕
