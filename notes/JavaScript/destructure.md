@@ -1,4 +1,9 @@
 # Деструктуризация
+
+* [Массивы](#Массивы)
+* [Key - Value (в цикле)](#key-value)
+* [Объекты](#Объекты)
+
 ## Массивы
 + Деструктуризация всех элементов массива
 ```javascript
@@ -40,13 +45,14 @@ console.log(a, b);
 let [test1, test2, test3] = [1, 2, 3];
 ```
 
-
 + Разбиение строки на слова
 ```javascript
 let [firstName, surname] = "Mark Knopfler".split(' ');
 console.log(firstName);
 console.log(surname);
 ```
+
+<div id="key-value"></div>
 
 ## Key - Value (в цикле)
 
