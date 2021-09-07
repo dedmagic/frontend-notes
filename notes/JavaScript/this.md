@@ -105,7 +105,7 @@ beginConversation.call(mark, 'Hello', '=D'); // Hello Mark Knopfler! =D
 beginConversation.apply(michael, ['Goodby', ':(']); // Goodby Michael Jackson! :(
 ```
 
-С помощью ещё одного метода – `bind` – можно на основе существующей функции создать новую, привязав при этом к ней контекст исполнения. При этом контекст привязывается намертво, подменить его с помощью `call` или `apply` уже не получится.
+С помощью ещё одного метода – `bind` – можно на основе существующей функции создать новую, привязав при этом к ней контекст исполнения. При этом контекст привязывается намертво, подменить его с помощью `call`, `apply` или `bind` уже не получится.
 
 ```javascript
 const helloMark1 = beginConversation.bind(mark);
@@ -178,9 +178,9 @@ class Man {
   }
 }
 
-const newBob = new Man('Bob Dylan');
-newBob.helloNormal(); // Hello Bob Dylan!
-newBob.helloArrow(); // Hello Bob Dylan!
-setTimeout(newBob.helloNormal, 1000); // Hello undefined!
-setTimeout(newBob.helloArrow, 1000); // Hello Bob Dylan!
+const mark = new Man('Mark Knopfler');
+mark.helloNormal(); // Hello Mark Knopfler!
+mark.helloArrow(); // Hello Mark Knopfler!
+setTimeout(mark.helloNormal, 1000); // Hello undefined!
+setTimeout(mark.helloArrow, 1000); // Hello Mark Knopfler!
 ```
