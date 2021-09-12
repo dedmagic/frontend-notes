@@ -23,9 +23,11 @@
 
 [Значения `null` и `undefined`](notes/JavaScript/null_undefined.md "null & undefined") ✔️➕
 
-[Контекст выполнения функции (`this`)](notes/JavaScript/this.md "functions") ✔️➕
+[Контекст выполнения функции (`this`)](notes/JavaScript/this.md "this") ✔️➕
+
+[Генераторы](notes/JavaScript/generators.md "generators") ✔️
 
 ## Tools
-[Объект `console`](notes/Tools/console.md "console") ➕
+[Объект `console`](notes/Tools/console.md "console object") ➕
 
 [Console API](notes/Tools/console_api.md "console api") ➕
