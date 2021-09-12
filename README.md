@@ -23,6 +23,8 @@
 
 [Значения `null` и `undefined`](notes/JavaScript/null_undefined.md "null & undefined") ✔️➕
 
+[Контекст выполнения функции (`this`)](notes/JavaScript/this.md "functions") ✔️➕
+
 ## Tools
 [Объект `console`](notes/Tools/console.md "console") ➕
 
