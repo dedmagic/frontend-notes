@@ -1,6 +1,6 @@
 # Фронтенд: заметки по теории
 ## Качество кода
-[Правила гигиены при фронтенд-разработке](notes/JavaScript/hygiene.md "hygiene")
+[Правила гигиены при фронтенд-разработке](notes/JavaScript/hygiene.md "hygiene")✔️➕
 
 ## JavaScript
 [Объявление переменных и констант (`var`, `let`, `const`)](notes/JavaScript/let_var_const.md "var, let, const") ✔️➕
