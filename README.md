@@ -25,7 +25,7 @@
 
 [Контекст выполнения функции (`this`)](notes/JavaScript/this.md "this") ✔️➕
 
-[Генераторы](notes/JavaScript/generators.md "generators") ✔️
+[Генераторы](notes/JavaScript/generators.md "generators") ✔️➕
 
 ## Tools
 [Объект `console`](notes/Tools/console.md "console object") ➕
