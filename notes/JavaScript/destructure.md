@@ -34,10 +34,10 @@ console.log(e); // 5
 + Обмен переменных значениями
 ```javascript
 let a = 1, b = 2;
-console.log(a, b);
+console.log(a, b); // 1 2
 
 [b, a] = [a, b];
-console.log(a, b);
+console.log(a, b); // 2 1
 ```
 
 + Присваивание значения нескольким переменным (ИМХО – отстой, не надо так)
@@ -50,6 +50,13 @@ let [test1, test2, test3] = [1, 2, 3];
 let [firstName, surname] = "Mark Knopfler".split(' ');
 console.log(firstName);
 console.log(surname);
+```
+
++ Значение по умолчанию
+```js
+const colors = [];
+const [firstColor = 'white'] = colors;
+console.log(firstColor); // white
 ```
 
 <div id="key-value"></div>
