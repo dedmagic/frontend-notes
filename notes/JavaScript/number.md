@@ -20,7 +20,7 @@ console.log(0.1 + 0.2 == 0.3); // false
 console.log(0.1 + 0.2); // 0.30000000000000004
 ```
 
-## Способы записи
+## Литералы типа `number`
 
 ```js
 console.log(1_000_000); // 1000000
@@ -93,6 +93,21 @@ console.log(typeof num96); // number
 * `Infinity` и `-Infinity` – бесконечность; возникает при переполнении.
 * `NaN` – "не число" (not a number); возникает, если в процессе числовых вычислений (или преобразования типов) получилось не число.
 
+```js
+console.log(typeof Infinity); // number
+console.log(typeof NaN); // number
+```
+
+Определять, является ли число конечным, можно или через сравнение со значением `Infinity`, или с помощью метода `Number.isFinity()`:
+
+```js
+console.log(Number.isFinite(num / 0)); // false
+console.log(Number.isFinite(Infinity)); // false
+console.log(Number.isFinite(-Infinity)); // false
+console.log(Number.isFinite(NaN)); // false
+console.log(Number.isFinite(42)); // true
+```
+
 Есть два разных `NaN` – свойство глобального объекта и свойство типа `Number`:
 
 ```js
@@ -107,9 +122,74 @@ console.log(NaN == NaN); // false
 console.log(Number.NaN == Number.NaN); // false
 ```
 
-## Округление
+Поэтому проверку на `NaN` можно осуществлять либо методом `Number.isNaN()`, либо одноименным методом глобального объекта:
+
+```js
+console.log(Number.isNaN(NaN)); // true
+console.log(isNaN(NaN)); // true
+console.log(Number.isNaN(42)); // false
+console.log(isNaN(42)); // false
+
+console.log(Number.isNaN("Hello world")); // false
+console.log(isNaN("Hello world")); // true
+```
+
+Внимание! Методы `isNaN()` типа `Number` и глобального объекта работают по-разному: первый возвращает `true` только если значение _сейчас_ равно `NaN`, второй – если значение сейчас равно `NaN` или станет ему равно после приведения к числовому типу.
 
 ## Преобразование
 
-parseInt, parseFloat, ...
+Для преобразования значения в целое или вещественное число используются методы `Number.parseInt` и `Number.parseFloat`. Оба преобразуют в число начало строки до первого недопустимого символа:
 
+```js
+console.log(Number.parseInt("42")); // 42
+console.log(Number.parseInt("42px")); // 42
+console.log(Number.parseInt("42.42")); // 42
+console.log(Number.parseInt("Hello world")); // NaN
+
+console.log(Number.parseFloat("42.42")); // 42.42
+console.log(Number.parseFloat("42.42px")); // 42.42
+console.log(Number.parseFloat("42.42.42px")); // 42.42
+console.log(Number.parseFloat("Hello world")); // NaN
+```
+
+У метода `Number.parseInt` может быть указан второй параметр – основание системы счисления:
+
+```js
+console.log(Number.parseInt("0xFF", 16));
+console.log(Number.parseInt("FF", 16));
+```
+
+Определить, является ли число целым, можно с помощью метода `Number.isInteger`:
+
+```js
+console.log(Number.isInteger(42)); // true
+console.log(Number.isInteger(42.42)); // false
+```
+
+## Округление
+
+```js
+console.log(Math.floor(3.3)); // 3
+console.log(Math.floor(3.8)); // 3
+console.log(Math.ceil(3.3)); // 4
+console.log(Math.ceil(3.8)); // 4
+console.log(Math.round(3.3)); // 3
+console.log(Math.round(3.8)); // 4
+console.log(Math.trunc(3.3)); // 3
+console.log(Math.trunc(3.8)); // 3
+```
+
+## Другие методы и константы
+
+```js
+console.log(Math.random()); // какое-то число
+console.log(Math.max(42, 96, -Infinity, 13)); // 96
+console.log(Math.min(42, 96, -Infinity, 13)); // -Infinity
+console.log(Number.EPSILON); // Наименьший интервал между двумя представимыми числами
+console.log(Number.MAX_SAFE_INTEGER); // Максимальное целое число, которое можно безопасно использовать в JavaScript (2**53 - 1)
+console.log(Number.MIN_SAFE_INTEGER); // Минимальное целое число, которое можно безопасно использовать (-(2**53 - 1))
+console.log(Number.MAX_VALUE); // Наибольшее представимое положительное число
+console.log(Number.MIN_VALUE); // Наименьшее представимое положительное число, т.е. самое близкое к нулю положительное число
+console.log(Number.POSITIVE_INFINITY); // Infinity
+console.log(Number.NEGATIVE_INFINITY); // -Infinity
+```
