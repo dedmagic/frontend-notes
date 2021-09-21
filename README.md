@@ -28,7 +28,7 @@
 [Генераторы](notes/JavaScript/generators.md "generators") ✔️➕
 
 ## JavaScript: типы
-[number](notes/JavaScript/number.md "number")
+[number](notes/JavaScript/number.md "number") ✔️➕
 
 ## Tools
 [Объект `console`](notes/Tools/console.md "console object") ➕
