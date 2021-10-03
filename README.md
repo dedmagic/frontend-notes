@@ -31,7 +31,8 @@
 [number](notes/JavaScript/number.md "number") ✔️➕
 
 ## Экосистема
-[Node.js](notes/Ecosystem/Node.md)
+[Node.js](notes/Ecosystem/Node.md) ✔️
+[npm](notes/Ecosystem/npm.md)
 
 ## Tools
 [Объект `console`](notes/Tools/console.md "console object") ➕
