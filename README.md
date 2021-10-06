@@ -30,6 +30,8 @@
 ## JavaScript: типы
 [number](notes/JavaScript/number.md "number") ✔️➕
 
+[BigInt](notes/JavaScript/bigint.md "BigInt") ✔️
+
 ## Экосистема
 [Node.js](notes/Ecosystem/Node.md) ✔️➕
 
