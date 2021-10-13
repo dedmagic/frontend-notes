@@ -23,6 +23,14 @@ console.log(b * 2n); // 18014398509481982n
 console.log('--------------------------------');
 ```
 
+Литералы могут быть двоичными, восьмеричными и шестнадцатеричными:
+
+```js
+console.log(0b11111100101); // 2021
+console.log(0o743); // 483
+console.log(0xFA09); // 64009
+```
+
 Так же для создания таких чисел можно использовать функцию `BigInt`:
 
 ```js
@@ -74,7 +82,7 @@ console.log(42n == 42); // true
 console.log(42n === 42); // false
 ```
 
-С логичиескими операциями `BigInt` ведёт себя так же, как и обычные числа:
+С логическими операциями `BigInt` ведёт себя так же, как и обычные числа:
 
 ```js
 if (0n) {
@@ -91,4 +99,18 @@ console.log(0n && 42n); // 0n
 
 console.log(Boolean(0n)); // false
 console.log(Boolean(42n)); // true
+```
+
+С побитовыми операциями `BigInt` тоже работает:
+
+```js
+console.log(456n >> 2n); // 114n
+```
+
+## Библиотека `Math`
+
+Функции библиотеки `Math` НЕ могут работать с данными типа `BigInt`.
+
+```js
+console.log(Math.max(1n, 2n)); // TypeError: Cannot convert a BigInt value to a number
 ```
