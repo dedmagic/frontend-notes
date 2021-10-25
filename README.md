@@ -37,6 +37,8 @@
 
 [npm](notes/Ecosystem/npm.md) ✔️➕
 
+[SemVer](notes/Ecosystem/semver.md) ✔️
+
 ## Tools
 [Объект `console`](notes/Tools/console.md "console object") ➕
 
