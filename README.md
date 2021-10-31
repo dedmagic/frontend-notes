@@ -39,6 +39,8 @@
 
 [SemVer](notes/Ecosystem/semver.md) ✔️
 
+[package.json](notes/Ecosystem/package.json.md) ✔️
+
 ## Tools
 [Объект `console`](notes/Tools/console.md "console object") ➕
 
