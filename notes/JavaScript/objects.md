@@ -26,8 +26,8 @@ console.log(empty_object.toString()); // => [object Object]
 
 ```js
 const musician = {
-  firstName: 'Mark',
-  secondName: 'Knopfler',
+    firstName: 'Mark',
+    secondName: 'Knopfler',
 };
 
 console.log(musician.toString()); // => [object Object]
@@ -60,11 +60,12 @@ console.log(musician["job"]); // => singer
 Для перебора всех свойств объекта можно использовать цикл `for/in`:
 
 ```js
-function printObject(obj) { // Вспомогательная функция: вывод свойств объекта
-  for (const prop in obj) {
-    console.log(`[${prop}] = ${obj[prop]}`);
-  }
-  console.log('-'.repeat(30));
+// Вспомогательная функция: вывод свойств объекта
+function printObject(obj) {
+    for (const key in obj) {
+        const value = obj[key];
+        console.log(`[${key}] = ${value}`);
+    }
 }
 
 printObject(musician);
@@ -94,23 +95,23 @@ printObject(musician);
 
 ```js
 const person = {
-  firstName: 'Mark',
-  secondName: 'Knopfler',
-
-  // Первый способ объявления метода: функциональное выражение
-  printName: function () {
-    console.log(this.firstName);
-  },
-
-  // Стрелочная функция как метод не может использовать `this`
-  wrongPrintName: () => {
-    console.log(this.name)
-  },
-
-  // Второй способ объявления функции: сокращённый синтаксис
-  printSecondName() {
-    console.log(this.secondName)
-  }
+    firstName: 'Mark',
+    secondName: 'Knopfler',
+    
+    // Первый способ объявления метода: функциональное выражение
+    printName: function () {
+        console.log(this.firstName);
+    },
+    
+    // Стрелочная функция как метод не может использовать `this`
+    wrongPrintName: () => {
+        console.log(this.firstName);
+    },
+    
+    // Второй способ объявления функции: сокращённый синтаксис
+    printSecondName() {
+        console.log(this.secondName);
+    }
 }
 
 person.printName();       // => Mark
@@ -144,10 +145,10 @@ person["printName"](); // => Mark
 
 ```js
 function Person(name, secondName) {
-  this.name = name;
-  this.secondName = secondName;
-  
-  this.hello = () => `Hello, ${this.name}`; // В конструкторе можно `this` в стрелочной функции
+    this.name = name;
+    this.secondName = secondName;
+    
+    this.hello = () => `Hello, ${this.name}`; // В конструкторе можно `this` в стрелочной функции
 }
 
 const mark = new Person('Mark', 'Knopfler');
@@ -165,7 +166,7 @@ printObject(mark);
 
 ```js
 mark.toString = function() {
-  return `${this.name} ${this.secondName}`;
+    return `${this.name} ${this.secondName}`;
 }
 
 console.log(mark.toString()); // => Mark Knopfler
