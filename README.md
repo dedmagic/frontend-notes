@@ -29,6 +29,8 @@
 
 [Объекты в JavaScript](notes/JavaScript/objects.md "objects") ✔️➕
 
+[Модули в JavaScript](notes/JavaScript/modules.md "modules") ✔️➕
+
 ## JavaScript: типы
 [number](notes/JavaScript/number.md "number") ✔️➕
 
