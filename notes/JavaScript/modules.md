@@ -30,7 +30,7 @@ export const ZERO = 0;
 
 ### Импорт в случае именованного экспорта
 
-```
+```js
 // Файл index.js
 import { add, sub } from './math_addition.js';
 
