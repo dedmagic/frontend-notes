@@ -8,7 +8,7 @@
 // Файл math_addition.js
 
 // "Приватная" функция
-function debug (msg) {
+function debug(msg) {
   console.log(msg);
 }
 
@@ -18,7 +18,7 @@ export function add(a, b) {
   return a + b;
 }
 
-export function sub (a, b) {
+export function sub(a, b) {
   debug('Substration');
   return a - b;
 }
@@ -44,7 +44,7 @@ const z = ZERO; // ReferenceError: ZERO is not defined
 ```
 
 * Имя импортируемого модуля обязательно должно начинаться с "/", "./", "../", иначе считается, что это библиотечный модуль (установленный с помощью npm). Однако некоторые сборщики, например webpack, умеют обходить это ограничение
-* Имя экспортируемого файла может быть заключено в кавычки или апострофы, обратные апострофы нельзы
+* Имя экспортируемого файла может быть заключено в кавычки или апострофы, обратные апострофы нельзя
 * Директива `import` допустима только на верхнем уровне модуля, нельзя её использовать внутри функций
 * Директива `import` может находится в любом месте кода, происходит автоматический hoisting. Но принято все директивы `import` записывать в начале
 * Код из всех импортируемых модулей выполняется ДО кода импортирующего модуля
@@ -55,7 +55,7 @@ const z = ZERO; // ReferenceError: ZERO is not defined
 ```js
 // Файл math_multiply.js
 
-function debug (msg) {
+function debug(msg) {
   console.log(msg);
 }
 
@@ -64,7 +64,7 @@ function mult(a, b) {
   return a * b;
 }
 
-function division (a, b) {
+function division(a, b) {
   debug('Division');
   return a / b;
 }
@@ -84,7 +84,7 @@ console.log(`a = ${a}`); // a = 42
 
 ```
 
-### Импорт всего экспортируемого
+### Импорт из модуля всего экспортируемого
 
 ```js
 // Файл index.js
@@ -132,7 +132,7 @@ console.log(getMainAnswer()); // 42
 ```js
 // Файл math_addition.js
 
-function debug (msg) {
+function debug(msg) {
   console.log(msg);
 }
 
@@ -141,7 +141,7 @@ export function add(a, b) {
   return a + b;
 }
 
-export function sub (a, b) {
+export function sub(a, b) {
   debug('Substration');
   return a - b;
 }
@@ -163,7 +163,7 @@ console.log(`x = ${x}`);
 ```js
 // Файл math_multiply.js
 
-function debug (msg) {
+function debug(msg) {
   console.log(msg);
 }
 
@@ -172,7 +172,7 @@ function mult(a, b) {
   return a * b;
 }
 
-function division (a, b) {
+function division(a, b) {
   debug('Division');
   return a / b;
 }
