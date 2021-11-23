@@ -14,3 +14,5 @@ console.log(date.toLocaleDateString()); // 23.11.2021
 
 console.log(date.toTimeString()); // 15:10:45 GMT+0500 (Екатеринбург, стандартное время)
 console.log(date.toLocaleTimeString()); // 15:10:45
+
+Intl.DateTimeFormat()
