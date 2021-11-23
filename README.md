@@ -36,7 +36,7 @@
 
 [BigInt](notes/JavaScript/bigint.md "BigInt") ✔️
 
-[Date](notes/JavaScript/date.md "Date") ✔️
+[Date](notes/JavaScript/date.md "Date") ✔️➕
 
 ## Экосистема
 [Node.js](notes/Ecosystem/Node.md) ✔️➕
