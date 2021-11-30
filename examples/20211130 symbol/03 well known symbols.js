@@ -6,8 +6,8 @@ const amount = {
     // [Symbol.toPrimitive](type) {
     //     if (type === 'number')
     //     {
-    //         return this.total       
-    //     } 
+    //         return this.total
+    //     }
     //     return this.valueOf();
     // }
     //#endregion

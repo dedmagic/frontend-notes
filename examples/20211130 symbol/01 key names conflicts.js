@@ -10,9 +10,10 @@ obj["more_comment"] =  "One more comment";
 // console.log(`Comment: ${obj[comment]}`);
 // console.log('-'.repeat(30));
 
-// // console.log(Symbol() == Symbol());
-// // console.log('-'.repeat(30));
-
+// console.log(
+//     Symbol() == Symbol()
+// );
+// console.log('-'.repeat(30));
 
 // console.log(JSON.stringify(obj, null, ' '));
 // console.log('-'.repeat(30));
@@ -21,14 +22,15 @@ obj["more_comment"] =  "One more comment";
 //     console.log(key);
 // }
 
-// //console.log(obj.Keys);
+// console.log(Object.keys(obj));
 
 // console.log('-'.repeat(30));
 // const id = Symbol('object id');
-// //obj[id] = 42;
+// obj[id] = 42;
 
-// console.log(obj[id]); // => 42
-// console.log(id); // => Symbol(object id)
+// console.log(obj[id]);
+// console.log(id);
 // console.log(comment);
 
-// console.log(obj.Keys);
+
+// console.log(Object.getOwnPropertySymbols(obj));

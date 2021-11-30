@@ -16,7 +16,7 @@ class Girl {
 
 let boy: Boy = new Girl('Мерелин Монро');
 
-console.log(boy.name); 
+console.log(boy.name);
 
 
 

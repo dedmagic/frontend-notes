@@ -46,6 +46,12 @@ console.log(id); // => Symbol(object id)
 console.log(comment); // => Symbol()
 ```
 
+Увидеть свойства объекта с идентификаторами типа `Symbol` можно с помощью метода `getOwnPropertySymbols`:
+
+```js
+console.log(Object.getOwnPropertySymbols(obj)); // [ Symbol(), Symbol(object id) ]
+```
+
 ---
 ### Кейс два
 

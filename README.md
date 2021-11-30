@@ -38,7 +38,7 @@
 
 [Date](notes/JavaScript/date.md "Date") ✔️➕
 
-[Symbol](notes/JavaScript/symbol.md "Symbol") ✔️
+[Symbol](notes/JavaScript/symbol.md "Symbol") ✔️➕
 
 ## Экосистема
 [Node.js](notes/Ecosystem/Node.md) ✔️➕
