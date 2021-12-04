@@ -31,6 +31,8 @@
 
 [Модули в JavaScript](notes/JavaScript/modules.md "modules") ➕
 
+[Итераторы](notes/JavaScript/iterators.md "iterators")
+
 ## JavaScript: типы
 [number](notes/JavaScript/number.md "number") ✔️➕
 
