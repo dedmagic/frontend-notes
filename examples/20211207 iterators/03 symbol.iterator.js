@@ -1,10 +1,10 @@
-const iterable = {
+const range = {
     from: 1,
     to: 5,
 
-    // getIterator: function () {
+    getIterator: function () {
     //#region hidden
-    [Symbol.iterator]: function () {
+    // [Symbol.iterator]: function () {
     //#endregion hidden
         return {
             current: this.from,
@@ -21,16 +21,11 @@ const iterable = {
     }
 }
 
-for (let item of iterable) {
+for (let item of range) {
     console.log(item);
 }
 
-// // При каждом итерировании итератор получается заново
-// for (let item of iterable) {
-//     console.log(item);
-// }
-
-/*
-Дополнительно:
-- метод `return()` итератора 
-*/
+// При каждом итерировании итератор получается заново
+for (let item of range) {
+    console.log(item);
+}

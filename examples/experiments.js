@@ -8,3 +8,7 @@ const obj = {
 
 const json = JSON.stringify(obj, null, '  ');
 console.log(json);
+
+
+let d = { count: 42 };
+console.log(d.length > 0);

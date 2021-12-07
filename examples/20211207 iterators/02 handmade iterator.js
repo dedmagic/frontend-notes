@@ -1,9 +1,9 @@
-const iterable = {
+const range = {
     from: 1,
     to: 5,
 
     getIterator: function() {
-        return { // iterator
+        return { // begin iterator
             current: this.from,
             last: this.to,
 
@@ -19,29 +19,29 @@ const iterable = {
 }
 
 // #region manually getting values
-// const iterator = iterable.getIterator();
+const iterator = range.getIterator();
 
-// let iteration_result = iterator.next();
-// console.log(iteration_result.value);
+let iteration_result = iterator.next();
+console.log(iteration_result.value);
 
-// iteration_result = iterator.next();
-// console.log(iteration_result.value);
+iteration_result = iterator.next();
+console.log(iteration_result.value);
 
-// iteration_result = iterator.next();
-// console.log(iteration_result.value);
+iteration_result = iterator.next();
+console.log(iteration_result.value);
 
-// iteration_result = iterator.next();
-// console.log(iteration_result.value);
+iteration_result = iterator.next();
+console.log(iteration_result.value);
 
-// iteration_result = iterator.next();
-// console.log(iteration_result.value);
+iteration_result = iterator.next();
+console.log(iteration_result.value);
 
-// iteration_result = iterator.next();
-// console.log(iteration_result.value);
+iteration_result = iterator.next();
+console.log(iteration_result.value);
 // #endregion manually getting values
 
 // #region getting iteration results
-// const iterator = iterable.getIterator();
+// const iterator = range.getIterator();
 
 // let iteration_result = iterator.next();
 // console.log(iteration_result);
@@ -63,7 +63,7 @@ const iterable = {
 // #endregion getting iteration results
 
 //#region getiing values in loop
-// const iterator = iterable.getIterator();
+// const iterator = range.getIterator();
 
 // let iteration_result = iterator.next();
 // while (!iteration_result.done) {

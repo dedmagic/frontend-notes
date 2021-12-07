@@ -1,4 +1,4 @@
-const iterable = {
+const range = {
     from: 1,
     to: 5,
 
@@ -16,7 +16,6 @@ const iterable = {
     }
 }
 
-for (let item of iterable) {
+for (let item of range) {
     console.log(item);
 }
-
