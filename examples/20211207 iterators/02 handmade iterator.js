@@ -2,19 +2,19 @@ const range = {
     from: 1,
     to: 5,
 
-    getIterator: function() {
+    getIterator: function () {
         return { // begin iterator
             current: this.from,
             last: this.to,
 
             next() {
                 if (this.current <= this.last) {
-                    return { value: this.current++, done: false }
+                    return { value: this.current++, done: false } // return { value: this.current++ }
                 } else {
-                    return { value: undefined, done: true }
+                    return { value: undefined, done: true } // return { done: true }
                 }
-            } // end iterator
-        }
+            }
+        } // end iterator
     }
 }
 
