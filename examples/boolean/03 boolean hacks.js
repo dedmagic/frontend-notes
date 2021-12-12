@@ -49,8 +49,8 @@ for (let i = 0; i < 10; i++) {
 }
 
 // значения по умолчанию
-let options = { font: 'Verdana' };
-//let options = null;
+//let options = { font: 'Verdana' };
+let options = null;
 
 options = options || { width: 42 };
 console.log(options);
