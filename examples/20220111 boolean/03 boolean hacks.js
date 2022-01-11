@@ -24,6 +24,8 @@ console.log('-'.repeat(30));
 let obj1 = { a: 42 };
 let obj2 = null; // or undefined
 
+//console.log(obj2.a);
+
 console.log(obj1 && obj1.a);
 console.log(obj2 && obj2.a);
 
@@ -33,7 +35,6 @@ console.log(obj2?.a);
 console.log('-'.repeat(30));
 
 // ещё одна замена if
-
 for (let i = 0; i < 10; i++) {
     if (i % 2 == 1) {
         console.log(i);
@@ -49,8 +50,8 @@ for (let i = 0; i < 10; i++) {
 }
 
 // значения по умолчанию
-//let options = { font: 'Verdana' };
-let options = null;
+let options = { font: 'Verdana' };
+// let options = null;
 
 options = options || { width: 42 };
 console.log(options);
