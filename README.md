@@ -42,7 +42,7 @@
 
 [Symbol](notes/JavaScript/symbol.md "Symbol") ✔️➕
 
-[Boolean](notes/JavaScript/boolean.md "Boolean") ✔️
+[Boolean](notes/JavaScript/boolean.md "Boolean") ✔️➕
 
 ## Экосистема
 [Node.js](notes/Ecosystem/Node.md) ✔️➕
