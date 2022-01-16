@@ -3,11 +3,10 @@
 Максимальное представимое целое число типа `Number` == `2^53 - 1`, его можно получить с помощью свойства `Number.MAX_SAFE_INTEGER`:
 
 ```js
-const a = 2**53-1;  // Number.MAX_SAFE_INTEGER
-console.log(a);     // 9007199254740991
-console.log(a + 1); // 9007199254740992
-console.log(a + 2); // 9007199254740992
-console.log('--------------------------------');
+const maxInt = Number.MAX_SAFE_INTEGER; // 2**53-1
+console.log(maxInt);     // 9007199254740991
+console.log(maxInt + 1); // 9007199254740992
+console.log(maxInt + 2); // 9007199254740992
 ```
 
 ## Литералы типа BigInt
@@ -15,20 +14,19 @@ console.log('--------------------------------');
 Для представления больших целых чисел в JavaScript используется тип `BigInt`.  Литералы этого типа оканчиваются символом `n`:
 
 ```js
-const b = 9007199254740991n;
-console.log(b);      // 9007199254740991n
-console.log(b + 1n); // 9007199254740992n
-console.log(b + 2n); // 9007199254740993n
-console.log(b * 2n); // 18014398509481982n
-console.log('--------------------------------');
+const bi = 9007199254740991n;
+console.log(bi);      // 9007199254740991n
+console.log(bi + 1n); // 9007199254740992n
+console.log(bi + 2n); // 9007199254740993n
+console.log(bi * 2n); // 18014398509481982n
 ```
 
 Литералы могут быть двоичными, восьмеричными и шестнадцатеричными:
 
 ```js
-console.log(0b11111100101); // 2021
-console.log(0o743); // 483
-console.log(0xFA09); // 64009
+console.log(0b11111100101); // 2021n
+console.log(0o743); // 483n
+console.log(0xFA09); // 64009n
 ```
 
 Так же для создания таких чисел можно использовать функцию `BigInt`:
@@ -61,7 +59,7 @@ console.log(typeof f); // "bigint"
 console.log(1n + 1); // TypeError: Cannot mix BigInt and other types, use explicit conversions
 ```
 
-Для типа BigInt не поддерживается операция "унарный минус":
+Для типа BigInt не поддерживается операция "унарный плюс":
 
 ```js
 console.log(+f); // TypeError: Cannot convert a BigInt value to a number
@@ -94,14 +92,14 @@ if (0n) {
 console.log(!!42n); // true
 console.log(!!0n); // false
 
+console.log(Boolean(42n)); // true
+console.log(Boolean(0n)); // false
+
 console.log(0n || 42n); // 42n
 console.log(0n && 42n); // 0n
-
-console.log(Boolean(0n)); // false
-console.log(Boolean(42n)); // true
 ```
 
-С побитовыми операциями `BigInt` тоже работает:
+С побитовыми операциями `BigInt` тоже работает (кроме операции `>>>`):
 
 ```js
 console.log(456n >> 2n); // 114n
