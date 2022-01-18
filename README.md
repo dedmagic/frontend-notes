@@ -36,7 +36,7 @@
 ## JavaScript: типы
 [number](notes/JavaScript/number.md "number") ✔️➕
 
-[BigInt](notes/JavaScript/bigint.md "BigInt") ✔️
+[BigInt](notes/JavaScript/bigint.md "BigInt") ✔️➕
 
 [Date](notes/JavaScript/date.md "Date") ✔️➕
 
