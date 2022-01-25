@@ -33,7 +33,7 @@
 
 [Итераторы](notes/JavaScript/iterators.md "iterators") ✔️➕
 
-[Работа с JSON](notes/JavaScript/json.md "JSON") ✔️
+[Работа с JSON](notes/JavaScript/json.md "JSON") ✔️➕
 
 ## JavaScript: типы
 [number](notes/JavaScript/number.md "number") ✔️➕
