@@ -1,4 +1,3 @@
-// Методы объекта JSON
 const obj = {
     x: 1,
     y: {
@@ -13,7 +12,6 @@ console.log(json1);
 const obj2 = JSON.parse(json1);
 console.log(obj2);
 
-// Преобразование значений при сериализации/десериализации
 const obj3 = {
     nullProp: null,
     undefinedProp: undefined,

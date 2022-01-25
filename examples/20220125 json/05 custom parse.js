@@ -5,7 +5,6 @@ const obj1 = {
 }
 
 const json1 = JSON.stringify(obj1);
-// console.log(json1);
 
 function reviver(key, value) {
     console.log(`${key} --> ${value}`);
