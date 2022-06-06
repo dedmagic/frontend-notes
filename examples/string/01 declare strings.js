@@ -10,6 +10,11 @@ for (let char of love) {
     count++;
 }
 
+const publishing1 = "Издательство O'Reilly";
+console.log(publishing1);
+const publishing2 = 'Издательство O\'Reilly'
+console.log(publishing2);
+
 const str1 = String('string');
 console.log(typeof str1);
 // str1.meta = 'Metadata';
