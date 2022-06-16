@@ -125,12 +125,60 @@ const str2 = 'One more string';
 console.log(str1 + str2); // --> Just stringOne more string
 ```
 
-2. Сравнение (`==`, `===`, `<`, `<=`, `>`, `>=`) производится по 16-битным значениям.
+2. Сравнение (`==`, `===`, `<`, `<=`, `>`, `>=`) производится по внутренним 16-битным значениям, поэтому возможна ситуация, когда выглядящие одинаково символы оказываются не равны:
+
+```js
+console.log('µ' === 'μ'); // --> false
+```
 
 **Примечание:** сравнение строк с учётом особенностей национальных алфавитов осуществляется с помощью метода объекта `String` `localeCompare` или методов класса `Intl.Collator`.
 
 ---
 ## Строковые функции
+
+### Подстроки
+
+Методы `slice` и `substring` позволяют выделить подстроку указанием левого (входит) и правого (не входит) индексов:
+
+```js
+console.log(str.substring(2, 5)); // --> llo
+console.log(str.slice(2, 5)); // --> llo
+```
+
+Отличия между `slice` и `substring`:
+1. Если конечный индекс меньшь начального, то `substring` меняет их местами, а `slice` возвращает пустую строку:
+
+```js
+console.log(str.substring(5, 2)); // --> llo
+console.log(str.slice(5, 2)); // пустая строка
+```
+
+2. Отрицательные индексы `substring` интерпретирует как 0, `slice` отсчитывает от конца строки:
+
+```js
+console.log(str.substring(-2, 4)); // --> Hell
+console.log(str.slice(3, -2)); // --> lo, wor
+```
+
+Метод `split` разбивает строку на подстроки по указанному разделителю:
+```js
+console.log(str.split(','));  // --> [ 'Hello', ' world' ]
+console.log(str.split(', ')); // --> [ 'Hello', 'world' ]
+```
+
+### Поиск в строке
+
+```js
+console.log(str.indexOf('l')); // --> 2
+console.log(str.indexOf('l', 3)); // --> 3
+console.log(str.indexOf('q')); // --> -1
+console.log(str.lastIndexOf('l')); // --> 10
+
+console.log(str.startsWith('He')); // --> true
+console.log(str.endsWith('zu')); // --> false
+console.log(str.includes('or')); // --> true
+```
+
 
 ---
 
