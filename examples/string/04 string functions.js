@@ -24,7 +24,17 @@ let str = 'Hello, world';
 // console.log(str.includes('or'));
 
 // Дополнение строк до заданной ширины
-console.log('z'.padStart(5));
-console.log('z'.padStart(5, '-'));
-console.log('z'.padEnd(5));
-console.log('z'.padEnd(5, '-'));
+// console.log('z'.padStart(5));
+// console.log('z'.padStart(5, '-'));
+// console.log('z'.padEnd(5));
+// console.log('z'.padEnd(5, '-'));
+
+// Модификация строк
+console.log(str.toLowerCase());
+console.log(str.toUpperCase());
+console.log(str.toLocaleLowerCase());
+console.log(str.toLocaleUpperCase());
+console.log(str.replace('ello', 'appy'));
+console.log(str.replace('o', 'u'));
+console.log(str.replaceAll('o', 'u'));
+console.log(str.repeat(3));

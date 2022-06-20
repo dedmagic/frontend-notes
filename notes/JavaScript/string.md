@@ -166,6 +166,8 @@ console.log(str.split(','));  // --> [ 'Hello', ' world' ]
 console.log(str.split(', ')); // --> [ 'Hello', 'world' ]
 ```
 
+Примечание. Ещё есть метод `substr`, который помечен как устаревший.
+
 ### Поиск в строке
 
 ```js
@@ -179,6 +181,29 @@ console.log(str.endsWith('zu')); // --> false
 console.log(str.includes('or')); // --> true
 ```
 
+Примечание. Для поиска подстроки в строке можно использовать регулярные выражения.
+
+### Дополнение строки до заданной длины
+
+```js
+console.log('z'.padStart(5)); // --> "    z"
+console.log('z'.padStart(5, '-')); // --> "----z"
+console.log('z'.padEnd(5)); // --> "z    "
+console.log('z'.padEnd(5, '-')); // --> "z----"
+```
+
+### Модификация строк
+
+```js
+console.log(str.toLowerCase()); // --> hello, world
+console.log(str.toUpperCase()); // --> HELLO, WORLD
+console.log(str.toLocaleLowerCase()); // --> hello, world
+console.log(str.toLocaleUpperCase()); // --> HELLO, WORLD
+console.log(str.replace('ello', 'appy')); // --> Happy, world
+console.log(str.repeat(3));  // --> Hello, worldHello, worldHello, world
+```
+
+Метод `replace` производит замену только первого вхождения.
 
 ---
 
@@ -190,4 +215,5 @@ TODO:
   - ~~конкатенация~~
   - ~~сравнение~~
 - Функции обработки строк
-- Тегированные шаблонные строки 
+- Тегированные шаблонные строки
+- добавить ссылку в README.md
