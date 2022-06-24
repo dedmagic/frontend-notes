@@ -1,4 +1,4 @@
-let str = 'Hello, world';
+const str = 'Hello, world';
 
 // Подстроки
 // console.log(str.substring(2, 5));
@@ -30,11 +30,24 @@ let str = 'Hello, world';
 // console.log('z'.padEnd(5, '-'));
 
 // Модификация строк
-console.log(str.toLowerCase());
-console.log(str.toUpperCase());
-console.log(str.toLocaleLowerCase());
-console.log(str.toLocaleUpperCase());
-console.log(str.replace('ello', 'appy'));
-console.log(str.replace('o', 'u'));
-console.log(str.replaceAll('o', 'u'));
-console.log(str.repeat(3));
+// console.log(str.toLowerCase());
+// console.log(str.toUpperCase());
+// console.log(str.toLocaleLowerCase());
+// console.log(str.toLocaleUpperCase());
+// console.log(str.replace('ello', 'appy'));
+// console.log(str.replace('o', 'u'));
+// console.log(str.replaceAll('o', 'u'));
+// console.log(str.repeat(3));
+
+
+// Отсечение пробелов
+// const spacesStr = '   Mark Knopfler       ';
+// console.log(`>>>${spacesStr}<<<`);
+// console.log(`>>>${spacesStr.trimStart()}<<<`);
+// console.log(`>>>${spacesStr.trimEnd()}<<<`);
+// console.log(`>>>${spacesStr.trim()}<<<`);
+
+// Работа с символами
+console.log(str.charAt(0));
+console.log(str.charCodeAt(0));
+console.log(str.codePointAt(0));

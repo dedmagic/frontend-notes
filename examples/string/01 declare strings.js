@@ -3,6 +3,7 @@ console.log(heart.length);
 
 const love = '💘';
 console.log(love.length);
+console.log(love[0], love[1]);
 
 let count = 1;
 for (let char of love) {
