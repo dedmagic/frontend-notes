@@ -116,6 +116,8 @@ console.log(multilines);
 
 Обрати внимание, бро, на обратный слэш в первой строке – он экранирует перевод строки. Если его убрать, то результат будет состоять из пяти строк (первая – пустая).
 
+Примечание: далее есть раздел "Тегированные шаблонные строки".
+
 ---
 ## Строки как массивы "read only"
 
@@ -257,20 +259,118 @@ console.log(`>>>${spacesStr.trimEnd()}<<<`);  // --> >>>   Mark Knopfler<<<
 console.log(`>>>${spacesStr.trim()}<<<`);  // --> >>>Mark Knopfler<<<
 ```
 
+## Тегированные шаблонные строки (tagged template literals)
 
+Шаблонный литерал представляет из себя текстовую строку с заполнителями:
 
+```js
+const name = 'Mark Knopfler';
+const wish1 = 'peace';
+const wish2 = 'tranquillity'
 
+const message1 = `Hi ${name}! I wish you ${wish1} and ${wish2}!!!`;
 
+console.log(message1); // --> Hi Mark Knopfler! I wish you peace and tranquillity!!!
+```
 
----
+Шаблонные литералы позволяют использовать специальный синтаксис, называемый тегами:
 
-TODO:
+```js
+const message2 = logTag`Hi ${name}! I wish you ${wish1} and ${wish2}!!!`;
+// --> [ 'Hi ', '! I wish you ', ' and ', '!!!' ]
+// --> [ 'Mark Knopfler', 'peace', 'tranquillity' ]
+```
 
-- ~~Про интерполяцию~~
-- ~~Создание строк с помощью `String` и `new String` - объектная обёртка.~~
-- ~~Операции над строками~~
-  - ~~конкатенация~~
-  - ~~сравнение~~
-- Функции обработки строк
-- Тегированные шаблонные строки
-- добавить ссылку в README.md
+Тег представляет из себя обычную функцию, которая получает на входе массив частей литерала, находящихся между заполнителями, и все заполнители как отдельные параметры этой функции:
+
+```js
+function logTag(literalParts, ...fillers) {
+    console.log(literalParts);
+    console.log(fillers);
+
+    return literalParts.reduce(
+        (result, part, i) => result + part + (fillers[i] ?? ''),
+        ''
+    );
+}
+```
+
+Из примера видно, что обработка происходит в момент создания литерала.
+
+Очевидно, что теги используются для некоторого преобразования строк. Пример (преобразование заполнителей в upper case):
+
+```js
+function uppercaseFillers(literalParts, ...fillers) {
+    const newFillers = fillers.map(filler => filler.toUpperCase());
+
+    return newFillers.reduce(
+        (result, filler, i) => result + filler + literalParts[i + 1],
+        literalParts[0]
+    );
+}
+
+const message3 = uppercaseFillers`Hi ${name}! I wish you ${wish1} and ${wish2}!!!`;
+console.log(message3); // --> Hi MARK KNOPFLER! I wish you PEACE and TRANQUILLITY!!!
+```
+
+Тег не обязан возвращать строку, это может быть результат любого типа:
+
+```js
+function mainQuestonAnswer(literalParts, ...fillers) {
+    return 42;
+}
+
+const message4 = mainQuestonAnswer`Hi ${name}! I wish you ${wish1} and ${wish2}!!!`;
+console.log(message4); // --> 42
+```
+
+Тегированные шаблонные литералы часто используются для создания DSL, например, как это делают библиотека [Emotion](https://emotion.sh/docs/introduction) (тег `css`) или [GraphQL](https://github.com/apollographql/graphql-tag) (тег `gql`):
+
+```js
+import { css, cx } from '@emotion/css'
+
+const color = 'white'
+
+render(
+  <div
+    className={css`
+      padding: 32px;
+      background-color: hotpink;
+      font-size: 24px;
+      border-radius: 4px;
+      &:hover {
+        color: ${color};
+      }
+    `}
+  >
+    Hover to change color.
+  </div>
+)
+```
+
+```js
+import gql from 'graphql-tag';
+
+const query = gql`
+  {
+    user(id: 5) {
+      firstName
+      lastName
+    }
+  }
+`
+```
+### Встроенный тег `String.raw`
+
+В JavaScript есть встроенный тег `String.raw`, который позволяет пропустить обработку в литерале управляющий последовательностей и получить этот литерал "как есть":
+
+```js
+const str1 = 'Ща будет TAB\t и перевод \nстроки';
+console.log(str1);
+// --> Ща будет TAB	 и перевод 
+// --> строки
+
+const str2 = String.raw`Ща будет TAB\t и перевод \nстроки`;
+console.log(str2); // --> Ща будет TAB\t и перевод \nстроки
+```
+

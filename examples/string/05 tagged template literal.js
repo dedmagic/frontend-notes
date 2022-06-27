@@ -19,11 +19,10 @@ function logTag(literalParts, ...fillers) {
 }
 
 const message2 = logTag`Hi ${name}! I wish you ${wish1} and ${wish2}!!!`;
-console.log(message2);
 
 /////////////////////////////////////////
 
-function upperWishTag(literalParts, ...fillers) {
+function uppercaseFillers(literalParts, ...fillers) {
     const newFillers = fillers.map(filler => filler.toUpperCase());
 
     return newFillers.reduce(
@@ -32,7 +31,7 @@ function upperWishTag(literalParts, ...fillers) {
     );
 }
 
-const message3 = upperWishTag`Hi ${name}! I wish you ${wish1} and ${wish2}!!!`;
+const message3 = uppercaseFillers`Hi ${name}! I wish you ${wish1} and ${wish2}!!!`;
 console.log(message3);
 
 /////////////////////////////////////////
@@ -44,4 +43,10 @@ function mainQuestonAnswer(literalParts, ...fillers) {
 const message4 = mainQuestonAnswer`Hi ${name}! I wish you ${wish1} and ${wish2}!!!`;
 console.log(message4);
 
-// TODO: String.raw
+/////////////////////////////////////////
+
+const str1 = 'Ща будет TAB\t и перевод \nстроки';
+console.log(str1);
+
+const str2 = String.raw`Ща будет TAB\t и перевод \nстроки`;
+console.log(str2);
