@@ -17,11 +17,7 @@
 
 [Методы массивов](notes/JavaScript/array_methods.md "array methods") ✔️➕
 
-[`Set`, `Map`, `WeakSet`, `WeakMap`](notes/JavaScript/set_map_weak.md "Set, Map, WeakSet, WeakMap") ✔️➕
-
 [Функции в JavaScript](notes/JavaScript/functions.md "functions") ✔️➕
-
-[Значения `null` и `undefined`](notes/JavaScript/null_undefined.md "null & undefined") ✔️➕
 
 [Контекст выполнения функции (`this`)](notes/JavaScript/this.md "this") ✔️➕
 
@@ -36,6 +32,10 @@
 [Работа с JSON](notes/JavaScript/json.md "JSON") ✔️➕
 
 ## JavaScript: типы
+[`Set`, `Map`, `WeakSet`, `WeakMap`](notes/JavaScript/set_map_weak.md "Set, Map, WeakSet, WeakMap") ✔️➕
+
+[Значения `null` и `undefined`](notes/JavaScript/null_undefined.md "null & undefined") ✔️➕
+
 [number](notes/JavaScript/number.md "number") ✔️➕
 
 [BigInt](notes/JavaScript/bigint.md "BigInt") ✔️➕
