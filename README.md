@@ -32,21 +32,21 @@
 [Работа с JSON](notes/JavaScript/json.md "JSON") ✔️➕
 
 ## JavaScript: типы
-[`Set`, `Map`, `WeakSet`, `WeakMap`](notes/JavaScript/set_map_weak.md "Set, Map, WeakSet, WeakMap") ✔️➕
+[`Set`, `Map`, `WeakSet`, `WeakMap`](notes/JavaScript_types/set_map_weak.md "Set, Map, WeakSet, WeakMap") ✔️➕
 
-[Значения `null` и `undefined`](notes/JavaScript/null_undefined.md "null & undefined") ✔️➕
+[Значения `null` и `undefined`](notes/JavaScript_types/null_undefined.md "null & undefined") ✔️➕
 
-[number](notes/JavaScript/number.md "number") ✔️➕
+[number](notes/JavaScript_types/number.md "number") ✔️➕
 
-[BigInt](notes/JavaScript/bigint.md "BigInt") ✔️➕
+[BigInt](notes/JavaScript_types/bigint.md "BigInt") ✔️➕
 
-[Date](notes/JavaScript/date.md "Date") ✔️➕
+[Date](notes/JavaScript_types/date.md "Date") ✔️➕
 
-[Symbol](notes/JavaScript/symbol.md "Symbol") ✔️➕
+[Symbol](notes/JavaScript_types/symbol.md "Symbol") ✔️➕
 
-[Boolean](notes/JavaScript/boolean.md "Boolean") ✔️➕
+[Boolean](notes/JavaScript_types/boolean.md "Boolean") ✔️➕
 
-[string](notes/JavaScript/string.md "string") ✔️
+[string](notes/JavaScript_types/string.md "string") ✔️
 
 ## Экосистема
 [Node.js](notes/Ecosystem/Node.md) ✔️➕
