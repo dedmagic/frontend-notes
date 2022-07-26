@@ -13,16 +13,18 @@ for (let char of love) {
 
 const publishing1 = "Издательство O'Reilly";
 console.log(publishing1);
-const publishing2 = 'Издательство O\'Reilly'
+const publishing2 = 'Издательство O\'Reilly';
 console.log(publishing2);
+const publishing3 = `Издательство O'Reilly`;
+console.log(publishing3);
 
 const str1 = String('string');
 console.log(typeof str1);
 // str1.meta = 'Metadata';
 
 const str2 = new String('string');
-console.log(typeof str2);
-str2.meta = "Metadata";
+console.log(typeof str2, str2);
+str2.meta = 42;
 console.log(str2.meta);
 
 const str3 = 'Это всё \

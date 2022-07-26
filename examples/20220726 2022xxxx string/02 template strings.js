@@ -12,3 +12,4 @@ const multilines = `\
 строк
 `;
 console.log(multilines);
+
