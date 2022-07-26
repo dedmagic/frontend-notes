@@ -23,8 +23,8 @@ console.log(typeof str1);
 // str1.meta = 'Metadata';
 
 const str2 = new String('string');
-console.log(typeof str2, str2);
-str2.meta = 42;
+console.log(typeof str2);
+str2.meta = 'Metadata';
 console.log(str2.meta);
 
 const str3 = 'Это всё \
