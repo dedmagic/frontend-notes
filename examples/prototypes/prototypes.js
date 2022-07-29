@@ -1,21 +1,23 @@
-const obj = {
-    a: 42,
-    b: 96,
-}
+// const obj = {
+//     a: 42,
+//     b: 96,
+// }
 
-console.log(obj.hasOwnProperty('b'));
-console.log(obj.toString());
+// console.log(obj.hasOwnProperty('b'));
+// console.log(obj.toString());
 
 // console.log(obj.__proto__);
 // console.log(obj.__proto__.__proto__);
 
-// const Person = function (name, age) {
-//     this.name = name;
-//     this.age = age;
-// }
+//#region function-constructor example
+const Person = function (name, age) {
+    this.name = name;
+    this.age = age;
+}
 
-// const person = new Person('Mark Knopfler', 72);
-// console.log(person);
+const person = new Person('Mark Knopfler', 72);
+console.log(person);
+//#endregion
 
 // const objj = new Object();
 // const arr = new Array();
