@@ -19,6 +19,16 @@ const person = new Person('Mark Knopfler', 72);
 console.log(person);
 //#endregion
 
+//#region function is a object
+function sum(a, b) {
+    return a + b;
+}
+
+sum.description = 'This is a sum of two numbers';
+console.log(sum.description);
+//#endregion function is a object
+
+
 // const objj = new Object();
 // const arr = new Array();
 // const str = new String();
