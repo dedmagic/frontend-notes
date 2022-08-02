@@ -6,9 +6,6 @@
 // console.log(obj.hasOwnProperty('b'));
 // console.log(obj.toString());
 
-// console.log(obj.__proto__);
-// console.log(obj.__proto__.__proto__);
-
 //#region function-constructor example
 const Person = function (name, age) {
     this.name = name;
@@ -28,6 +25,8 @@ sum.description = 'This is a sum of two numbers';
 console.log(sum.description);
 //#endregion function is a object
 
+console.log(obj.__proto__);
+console.log(obj.__proto__);
 
 // const objj = new Object();
 // const arr = new Array();
