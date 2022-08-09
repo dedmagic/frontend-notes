@@ -255,12 +255,21 @@ console.log(str.repeat(3));  // --> Hello, worldHello, worldHello, world
 Метод `replace` производит замену только первого вхождения, метод `replaceAll` появился только в ES2021.
 
 ### Отсечение пробелов
+
 ```js
 const spacesStr = '   Mark Knopfler       ';
 console.log(`>>>${spacesStr}<<<`);  // --> >>>   Mark Knopfler       <<<
 console.log(`>>>${spacesStr.trimStart()}<<<`);  // --> >>>Mark Knopfler       <<<
 console.log(`>>>${spacesStr.trimEnd()}<<<`);  // --> >>>   Mark Knopfler<<<
 console.log(`>>>${spacesStr.trim()}<<<`);  // --> >>>Mark Knopfler<<<
+```
+
+### Работа с отдельными символами
+
+```js
+console.log(str.charAt(0)); // Символ в указанной позиции (внутреннее представление, т.е. для суррогатной пары возвращается только часть символа)
+console.log(str.charCodeAt(0)); // Код символа в указанной позиции (внутреннее представление)
+console.log(str.codePointAt(0)); // UNICODE-символ в указанной позиции
 ```
 
 ## Тегированные шаблонные строки (tagged template literals)
