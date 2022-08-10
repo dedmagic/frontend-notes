@@ -46,7 +46,7 @@
 
 [Boolean](notes/JavaScript_types/boolean.md "Boolean") ✔️➕
 
-[string](notes/JavaScript_types/string.md "string") ✔️
+[string](notes/JavaScript_types/string.md "string") ✔️➕
 
 ## Экосистема
 [Node.js](notes/Ecosystem/Node.md) ✔️➕
