@@ -25,6 +25,5 @@ const bigs1 = Array.prototype.filter.call(numbers, item => item > 50);
 console.log(bigs1);
 
 // (b) Array.from().filter()
-
 const bigs2 = Array.from(numbers).filter(item => item > 50);
 console.log(bigs2);
