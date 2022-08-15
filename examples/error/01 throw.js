@@ -1,4 +1,4 @@
-// // строка
+// // string
 // try {
 //     throw 'This is error';
 // } catch (e) {
@@ -31,19 +31,11 @@
 //     console.log(e);
 // }
 
-
-// // class Error
-// try {
-//     throw new Error('This is error');
-// } catch (e) {
-//     console.log(e.message);
-//     console.log(e.name);
-//     console.log(e.stack);
-// }
-
 // class Error
 try {
-    throw new Error('This is error', 'main.js', 42);
+    throw new Error('This is error');
 } catch (e) {
-    console.log(e.fileName);
+    console.log(e.message);
+    console.log(e.name);
+    console.log(e.stack);
 }
