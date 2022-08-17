@@ -1,14 +1,14 @@
 try {
-    throw new Error('Good place');
+    throw new Error('Good place'); // line 2
 } catch (e) {
-    console.log(e);
+    console.log(e); // --> line 2
 }
 
-const error = new Error('Bad place');
+const error = new Error('Bad place'); // line 7
 try {
-    throw error;
+    throw error; // line 9
 } catch (e) {
-    console.log(e);
+    console.log(e); // --> line 7
 }
 
 function createError() {
@@ -23,5 +23,5 @@ function generateError() {
 try {
     generateError();
 } catch (e) {
-    console.log(e);
+    console.log(e); // --> stacktrace: createError → generateError → ...
 }
