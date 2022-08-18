@@ -161,11 +161,14 @@ class EntityNotFoundError extends Error {
 
         this.entityType = entityType;
         this.entityId = entityId;
+
+        this.name = 'EntityNotFoundError';
     }
 
     // ...
 }
 
+// mock
 function getPersonFromDatabase(id) {
     return null;
 }
@@ -180,4 +183,28 @@ try {
 }
 ```
 
-*** См. код примера: рассказать про обязательную кастомизацию свойства `name` и про тип объекта (`instanceof`). 
+**Важно:** необходимо обязательно переопределять наследуемое свойство `name`, иначе оно будет возвращать имя ошибки для базового типа:
+
+```js
+...
+console.log(e.name); // --> Error (при отсутствии инструкции `this.name = 'EntityNotFoundError';`)
+...
+```
+
+Поэтому надёжнее для определения типа ошибки использовать операцию `instanceof`:
+
+```js
+...
+console.log(e instanceof EntityNotFoundError); // --> true
+...
+```
+
+При этом нужно не забывать, что эта операция ищет соответствие типу по всей цепочке прототипов, т.е.
+
+```js
+...
+console.log(e instanceof Error); // --> true
+...
+```
+
+Поэтому при проверке типа (через `switch` или последовательность `if`) нужно начинать от более конкретных к более общим типам ошибок (от потомков к наследникам).

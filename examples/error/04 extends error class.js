@@ -5,12 +5,14 @@ class EntityNotFoundError extends Error {
 
         this.entityType = entityType;
         this.entityId = entityId;
-        // this.name = 'EntityNotFoundError';
+
+        this.name = 'EntityNotFoundError';
     }
 
     // ...
 }
 
+// mock
 function getPersonFromDatabase(id) {
     return null;
 }
@@ -22,7 +24,7 @@ try {
     }
 } catch (e) {
     console.log(e.message);
-    // console.log(e.name);
-    // console.log(e instanceof Error);
+    //console.log(e.name);
     // console.log(e instanceof EntityNotFoundError);
+    // console.log(e instanceof Error);
 }
