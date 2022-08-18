@@ -48,6 +48,8 @@
 
 [string](notes/JavaScript_types/string.md "string") ✔️➕
 
+[Array](notes/JavaScript_types/array.md "Array") ✔️
+
 ## Экосистема
 [Node.js](notes/Ecosystem/Node.md) ✔️➕
 
