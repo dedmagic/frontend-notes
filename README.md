@@ -31,6 +31,8 @@
 
 [Работа с JSON](notes/JavaScript/json.md "JSON") ✔️➕
 
+[Типы ошибок в JavaScript](notes/JavaScript/error.md "Error") ✔️➕
+
 ## JavaScript: типы
 [`Set`, `Map`, `WeakSet`, `WeakMap`](notes/JavaScript_types/set_map_weak.md "Set, Map, WeakSet, WeakMap") ✔️➕
 
