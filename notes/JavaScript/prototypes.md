@@ -45,7 +45,7 @@ console.log(person); // --> Person { name: 'Mark Knopfler', age: 72 }
 
 `функция-конструктор === тип`
 
-## Свойство `Object.prototype
+## Свойство `Object.prototype`
 
 У всех функций-конструкторов встроенных типов JavaScript есть свойство `prototype`, которое содержит ссылку на предопределённый объект (рассмотрим на примере типа `Object`):
 
