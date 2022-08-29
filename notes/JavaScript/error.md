@@ -26,7 +26,6 @@ try {
     console.log(e); // --> This is error
 }
 
-
 try {
     throw 42; // expresion of any type
 } catch (e) {
@@ -115,7 +114,7 @@ try {
 
 ## Предопределённые типы ошибок в JavaScript
 
-Кроме типа `Error`, в JavaScript также имеются в налиичии следующие типы ошибок: `ReferenceError`, `RangeError`, `TypeError`, `InternalError`, `URIError`, `EvalError`, `SyntaxError`.
+Кроме типа `Error`, в JavaScript также имеются в налиичии следующие типы ошибок: `ReferenceError`, `RangeError`, `TypeError`, `InternalError`, `URIError`, `EvalError`, `SyntaxError` ([MDN](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Error#error_types "Типы ошибок")).
 
 При обработке разных типов ошибок можно воспользоваться либо свойством `name` объекта ошибки или операцией `instanceof`:
 
