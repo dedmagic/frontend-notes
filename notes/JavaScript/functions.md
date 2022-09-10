@@ -7,13 +7,13 @@
 Т.к. для инструкций объявления действует поднятие (hoisting), то такую функцию можно вызывать _до_ её объявления.
 
 ```javascript
-func1(1, 1); // func1: 2
+func1(1, 1); // --> func1: 2
 
 function func1(a, b) {
     console.log(`func1: ${a + b}`);
 }
 
-func1(1, 1); // func1: 2
+func1(1, 1); // --> func1: 2
 ```
 
 + Способ 2: функциональное выражение
@@ -21,13 +21,13 @@ func1(1, 1); // func1: 2
 Т.к. поднятие действует только на определение переменной, но не на её инициализацию, то такую функцию можно вызвать _только после_ объявления.
 
 ```javascript
-func2(2, 2); // ReferenceError: Cannot access 'func2' before initialization
+func2(2, 2); // --> ReferenceError: Cannot access 'func2' before initialization
 
 const func2 = function (a, b) {
     console.log(`func2: ${a + b}`);
 }
 
-func2(2, 2); // func2: 4
+func2(2, 2); // --> func2: 4
 ```
 
 Можно использовать _именованное функциональное выражение_; имя видно только в рамках самого объявления. Используется при объявлении рекурсивной функции и ещё вроде как при сериализации в JSON (но это неточно).
@@ -40,8 +40,8 @@ const rec_func = function factorial(n) {
     return n * factorial(n-1);
 }
 
-console.log(rec_func(5));  // 120
-console.log(factorial(5)); // ReferenceError: factorial is not defined
+console.log(rec_func(5));  // --> 120
+console.log(factorial(5)); // --> ReferenceError: factorial is not defined
 ```
 
 + Способ 3: с помощью конструктора
@@ -72,7 +72,7 @@ const func4 = (a, b) => {
 ```javascript
 const func4a = (a, b) => { return a + b };
 const func4b = (a, b) => a + b;
-console.log(func4a(1, 2), func4b(1, 2)); // 3 3
+console.log(func4a(1, 2), func4b(1, 2)); // --> 3 3
 ```
 
 ## Возвращаемое значение
@@ -81,8 +81,10 @@ console.log(func4a(1, 2), func4b(1, 2)); // 3 3
 
 ```javascript
 console.log(func1(1, 1));
-// func1: 2
-// undefined
+/* -->
+func1: 2
+undefined
+*/
 ```
 
 ## Аргументы функций
@@ -99,11 +101,11 @@ function func5() {
 
 const func6 = () => { console.log(`func6: ${arguments.length}`); }
 
-func5();             // func5: 0
-func5(2, 3);         // func5: 2
-func5([1, 2, 3, 4]); // func5: 1
-func6();     // ReferenceError: arguments is not defined
-func6(5, 7); // ReferenceError: arguments is not defined
+func5();             // --> func5: 0
+func5(2, 3);         // --> func5: 2
+func5([1, 2, 3, 4]); // --> func5: 1
+func6();     // --> ReferenceError: arguments is not defined
+func6(5, 7); // --> ReferenceError: arguments is not defined
 ```
 
 + Сбор параметров в массив (rest)
@@ -129,8 +131,8 @@ function funcA (a, b) {
     console.log(a, b);
 }
 
-funcA(1, 2); // 1 2
-funcA(1); // 1 undefined
+funcA(1, 2); // --> 1 2
+funcA(1); // --> 1 undefined
 ```
 
 + Параметры по умолчанию
@@ -142,13 +144,14 @@ function func8(a, b = 7) {
 
 const func9 = (a, b = 7) => a + b;
 
-console.log(func8(1, 2)); // 3
-console.log(func8(1));    // 8
-console.log(func9(1, 2)); // 3
-console.log(func9(1));    // 8
+console.log(func8(1, 2)); // --> 3
+console.log(func8(1));    // --> 8
+console.log(func9(1, 2)); // --> 3
+console.log(func9(1));    // --> 8
 ```
 
 + Передача параметров по значению
+
 ```javascript
 function func7(a, b) {
     a = 42;
@@ -158,40 +161,65 @@ function func7(a, b) {
 let x = 96;
 let y = { prop: 96 };
 
-console.log(x, y); // 96 { prop: 96 }
+console.log(x, y); // --> 96 { prop: 96 }
 func7(x, y);
-console.log(x, y); // 96 { prop: 42 }
+console.log(x, y); // --> 96 { prop: 42 }
 ```
 
-## Свойства функций
+## Функция – это объект
 
-+ Количество ожидаемых аргументов
+Любая функция в JavaScript является объектом, соответственно, у неё могут быть свои свойства и методы:
+
+```js
+function func() {
+    console.log('Function!')
+}
+
+func(); // --> Function!
+
+func.description = 'This is function, dude :)'
+console.log(func.description) // --> This is function, dude :)
+console.log(func.toString())
+/* -->
+function func() {
+    console.log('Function!')
+}
+*/
+```
+
+## Встроенные свойства и методы функций
+
++ Количество ожидаемых аргументов: `length`
+
 ```javascript
-console.log(func1.length);    // 2
-console.log(func4.length);    // 2
-console.log(func5.length);    // 0
-console.log(func6.length);    // 0
-console.log(rec_func.length); // 1
+console.log(func1.length);    // --> 2
+console.log(func4.length);    // --> 2
+console.log(func5.length);    // --> 0
+console.log(func6.length);    // --> 0
+console.log(rec_func.length); // --> 1
 ```
 
-+ Свойство `name`
++ Имя функции: `name`
+
 ```javascript
-console.log(func1.name);    // func1
-console.log(func2.name);    // func2
-console.log(func3.name);    // anonymous
-console.log(func4.name);    // func4
-console.log(func5.name);    // func5
-console.log(func6.name);    // func6
-console.log(rec_func.name); // factorial
+console.log(func1.name);    // --> func1
+console.log(func2.name);    // --> func2
+console.log(func3.name);    // --> anonymous
+console.log(func4.name);    // --> func4
+console.log(func5.name);    // --> func5
+console.log(func6.name);    // --> func6
+console.log(rec_func.name); // --> factorial
 ```
 
-+ Исходный текст функции
++ Исходный текст функции: `toString()`
+
 ```javascript
 console.log(func1.toString());
-// function func1(a, b) {
-//     console.log(`func1: ${a + b}`);
-// }
+/* -->
+function func1(a, b) {
+    console.log(`func1: ${a + b}`);
+}
+*/
 
-console.log(func4.toString());
-// (a, b) => { console.log(`func4: ${a + b}`); }
+console.log(func4.toString()); // --> (a, b) => { console.log(`func4: ${a + b}`); }
 ```
