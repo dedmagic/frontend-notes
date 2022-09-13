@@ -33,6 +33,8 @@
 
 [Обработка ошибок в JavaScript](notes/JavaScript/error.md "Error") ✔️➕
 
+[Прототипы](notes/JavaScript/prototypes.md "prototypes") ✔️➕
+
 ## JavaScript: типы
 [`Set`, `Map`, `WeakSet`, `WeakMap`](notes/JavaScript_types/set_map_weak.md "Set, Map, WeakSet, WeakMap") ✔️➕
 

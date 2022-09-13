@@ -3,8 +3,9 @@ const obj = {
     b: 96,
 }
 
-// console.log(obj.hasOwnProperty('b'));
-// console.log(obj.toString());
+
+console.log(obj.hasOwnProperty('b'));
+console.log(obj.toString());
 
 // console.log(obj.__proto__);
 
