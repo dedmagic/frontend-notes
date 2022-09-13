@@ -223,3 +223,31 @@ function func1(a, b) {
 
 console.log(func4.toString()); // --> (a, b) => { console.log(`func4: ${a + b}`); }
 ```
+
+## Функции-конструкторы
+
+Функции в JavaScript бывают двух видов: "обычные", предназначенные для каких-то вычислений или изменения состояния, и функции-конструкторы, которые используются для создания объектов. Вызываются функции-конструкторы с помощью конструкции `new`:
+
+```js
+const Person = function (name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+const person = new Person('Mark Knopfler', 72);
+console.log(person); // --> Person { name: 'Mark Knopfler', age: 72 }
+```
+
+Внутри функций-конструкторов происходит заполнения свойств создаваемого объекта (конечно, можно там осуществлять и любые другие действия, но это бессмысленно). Если функция вызвана с помощью конструкции `new`, то любой явный возврат (инструкция `return`) игнорируется.
+
+Фактически, с помощью функции-конструктора задаётся некий тип (класс?).
+
+Все стандартные ссылочные типы в JavaScript имеют свои конструкторы:
+
+```js
+console.log(Object); // --> [Function: Object]
+console.log(Array); // --> [Function: Array]
+console.log(Date); // --> [Function: Date]
+console.log(RegExp); // --> [Function: RegExp]
+console.log(String); // --> [Function: String]
+```
