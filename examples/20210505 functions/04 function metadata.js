@@ -50,8 +50,6 @@ console.log(func4.toString());
 line();
 console.log(func6.toString());
 
-
-
 // helper
 function line() {
     console.log(`${'-'.repeat(20)}\n`);
