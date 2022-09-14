@@ -1,6 +1,7 @@
 # Изменение структуры объекта
 
 + Удаление свойства из объекта
+
 ```javascript
 const user = {
     id: 100,
@@ -15,6 +16,7 @@ console.log(userWithoutPassword);  // { id: 100, name: 'Mark Knopfler' }
 ```
 
 + Динамическое удаление свойства
+
 ```javascript
 let user1 = {
     id: 100,
@@ -35,6 +37,7 @@ console.log(user3); // { name: 'Mark Knopfler', password: 'Password!' }
 ```
 
 + Добавление свойства
+
 ```javascript
 const user = { id: 100, name: 'Mark Knopfler'};
 const userWithPass = { ...user, password: 'Password!' };
@@ -44,15 +47,18 @@ console.log(userWithPass); // { id: 100, name: 'Mark Knopfler', password: 'Passw
 ```
 
 + Добавление нескольких свойств
+
 ```javascript
 const partial = { id: 42, name: 'Mark Knopfler' };
 const user = { ...partial, id: 96, password: 'Password!' };
 
 console.log(user); // { id: 96, name: 'Mark Knopfler', password: 'Password!' }
 ```
+
 Примечание: в случае наличия одинаковых свойств берётся значение последнего из них (в примере `id == 96`)
 
 + Добавление свойства, только если оно отсутствует у объекта (дефолтное свойство):
+
 ```javascript
 let user1 = {
     id: 200,
@@ -83,6 +89,7 @@ console.log(user2);
 + Добавление свойства по условию
 
 Свойство будет добавлено в объект только в том случае, если `password` имеет значение.
+
 ```javascript
 const user = { id: 100, name: 'Mark Knopfler' };
 const password = 'Password!';
@@ -95,6 +102,7 @@ console.log(userWithPassword); // { id: 100, name: 'Mark Knopfler', password: 'P
 ```
 
 + Переименование свойства:
+
 ```javascript
 const user = {
     ID: 500,
@@ -108,6 +116,7 @@ console.log(user2); // { id: 500, name: 'Mark Knopfler' }
 ```
 
 + Перемещение свойства на первое место:
+
 ```javascript
 const user = {
     password: 'Password!',
@@ -123,6 +132,7 @@ console.log(user2); // { id: 300, password: 'Password!', name: 'Mark Knopfler' }
 ```
 
 + Перемещение свойства на последнее место:
+
 ```javascript
 const user = {
     password: 'Password!',
@@ -136,4 +146,13 @@ const organize = ({ password, ...object }) =>
 // move id to the last property
 const user2 = organize(user);
 console.log(user2); // { name: 'Mark Knopfler', id: 300, password: 'Password!' }
+```
+
++ Создание копии с изменением значения одного свойства:
+
+```js
+this.scenarioForView = {
+   ...result,
+   creationTimestamp: new Date(result.creationTimestamp),
+};
 ```
