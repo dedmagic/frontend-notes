@@ -1,4 +1,4 @@
-# ASI (Automatic semicondactor insertion)
+# ASI (Automatic Semicondactor Insertion)
 
 ## Автоматическая вставка точки с запятой в конце строки
 
@@ -40,3 +40,105 @@ const e = 42
 -96;
 console.log(e) // --> -54
 ```
+
+## Случаи, когда точка с запятой вставляется без анализа следующей строки
+
++ Если после инструкции `return` следует завершение строки, то в этом месте вставляется точка с запятой независимо от того, что находится в следующей строке.
+
+```js
+function func() {
+    return
+        42;
+}
+
+console.log(func()) // --> undefined
+```
+
+Функция вернёт `undefined`, поскольку строка `return` интерпретируется как `return;`.
+
++ Аналогично с инструкцией `yield`:
+
+```js
+function* numbers() {
+    yield
+        42;
+    yield
+        96;
+}
+
+for(const num of numbers()) {
+    console.log(num) 
+}
+/* -->
+undefined
+undefined
+*/
+```
+
++ Следущюй за `throw` конец строки вызовет ошибку:
+
+```js
+try {
+    throw
+        new Error('Error!')
+} catch (error) {
+    console.log(error)
+}
+// --> SyntaxError: Illegal newline after throw
+```
+
++ `break`, `continue`
+
+В следующем примере используется инструкция `break` с меткой, что позволяет выйти сразу за пределы помеченного этой меткой блока:
+
+```js
+block_label: {
+    for (let i = 0; i < 10; i++) {
+        console.log(i)
+        if (i === 5) {
+            break block_label
+        }
+    }
+    console.log('Inside the block')
+}
+console.log('Outside the block')
+/* -->
+0
+1
+2
+3
+Outside the block
+*/
+```
+
+Обрати внимание, бро, что сообщение "Inside the block" не вывелось.
+
+Если после `break`/`continue` следует конец строки, то произойдёт автоматическая вставка точки с запятой:
+
+```js
+block_label: {
+    for (let i = 0; i < 10; i++) {
+        console.log(i)
+        if (i === 3) {
+            break
+                block_label
+        }
+    }
+    console.log('Inside the block')
+}
+console.log('Outside the block')
+/* -->
+0
+1
+2
+3
+Inside the block
+Outside the block
+*/
+```
+
+## Выводы: использовать ли точку с запятой?
+
++ Единственно правильного пути нет: правильно так, как решит команда
++ Наиболее безопасный путь: постоянное использование точки с запятой в конце строк
++ Нужно настроить инструмент автоформатирования таким образом, чтобы он автоматически вставлял точки с запятой в конце строк
