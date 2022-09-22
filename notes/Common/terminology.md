@@ -29,10 +29,20 @@ Tree shaking – оптимизация итоговых пакетов кода
 
 Минифицированным версиям файлов часто дают расширение `*.min.js`.
 
-Примеры: [Google Closure Compiler](https://developers.google.com/closure/compiler/), [UglifyJS](https://github.com/mishoo/UglifyJS).
+Пример минифицированного кода – jquery.min.js:
+
+![jquery.min.js](img/jquery.min.js.png)
+
+Примеры минификаторов: [Google Closure Compiler](https://developers.google.com/closure/compiler/), [UglifyJS](https://github.com/mishoo/UglifyJS).
 
 ## Обфускация
 
 Обфускация или запутывание кода — приведение исходного кода программы к виду, сохраняющему её функциональность, но затрудняющему анализ, понимание алгоритмов работы и модификацию.
 
 Обфускация на уровне исходного кода (например, для JavaScript) включает в себя замену имён и форматирование текста программы.
+
+Примеры обфусцированного кода:
+
+![Обфускация](img/obfuscate1.jpg)
+![Обфускация](img/obfuscate2.png)
+![Обфускация](img/obfuscate3.png)
