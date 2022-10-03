@@ -1,6 +1,9 @@
 # Фронтенд: заметки по теории
-## Качество кода
-[Правила гигиены при фронтенд-разработке](notes/JavaScript/hygiene.md "hygiene") ✔️➕
+
+## Общие вопросы
+[Правила гигиены при фронтенд-разработке](notes/Common/hygiene.md "hygiene") ✔️➕
+
+[Терминология процесса производства кода](notes/Common/terminology.md "terminology") ✔️
 
 ## JavaScript
 [Объявление переменных и констант (`var`, `let`, `const`)](notes/JavaScript/let_var_const.md "var, let, const") ✔️➕
@@ -35,7 +38,7 @@
 
 [Прототипы](notes/JavaScript/prototypes.md "prototypes") ✔️➕
 
-[ASI](notes/JavaScript/asi.md "Automatic Semicondactor Insertion") ✔️
+[ASI](notes/JavaScript/asi.md "Automatic Semicondactor Insertion") ✔️➕
 
 ## JavaScript: типы
 [`Set`, `Map`, `WeakSet`, `WeakMap`](notes/JavaScript_types/set_map_weak.md "Set, Map, WeakSet, WeakMap") ✔️➕
