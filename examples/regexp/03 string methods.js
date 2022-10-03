@@ -1,17 +1,17 @@
 const shakespeare = 'To be, or not to be, that is the question!';
-// const regexp = /on|no/gi;
+const regexp = /on|no/gi;
 
-// // String.prototype.search
-// const res1 = shakespeare.search(regexp); // flag 'g' ignored
-// console.log(res1); // 10
+// String.prototype.search
+const res1 = shakespeare.search(regexp); // flag 'g' ignored
+console.log(res1); // 10
 
-// const res2 = 'Hello world!'.search(regexp);
-// console.log(res2); // -1
+const res2 = 'Hello world!'.search(regexp);
+console.log(res2); // -1
 
-// const res3 = shakespeare.search(/to/i); // flag 'i' used
-// console.log(res3); // 0
+const res3 = shakespeare.search(/to/i); // flag 'i' used
+console.log(res3); // 0
 
-// // Примечание: параметр-строка преобразуется в объект RegExp
+// Примечание: параметр-строка преобразуется в объект RegExp
 
 // // String.prototype.replace
 // const res4 = shakespeare.replace(regexp, '42');
@@ -25,7 +25,7 @@ const shakespeare = 'To be, or not to be, that is the question!';
 // console.log(res6); // ['To', 'be', 'or', 'not', 'to', 'be', 'that', 'is', 'the', 'question']
 
 // String.prototype.match without 'g' flag
-const message = 'Write me to superman@yandex.com. By!';
+// const message = 'Write me to superman@yandex.com. By!';
 // const atRegExp = /@/;
 // const res7 = message.match(atRegExp);
 // console.log(res7);
@@ -54,7 +54,7 @@ const message = 'Write me to superman@yandex.com. By!';
 // console.log(res9.groups.domain2); // yandex
 // console.log(res9.groups.domain1); // com
 
-// // String.prototype.match with 'g' and 'y' (sticky) flags 
+// // String.prototype.match with 'g' and 'y' (sticky) flags
 // const res10 = shakespeare.match(/\w+ /gy);
 // console.log(res10); // ['To ']
 
@@ -68,15 +68,15 @@ const message = 'Write me to superman@yandex.com. By!';
 // console.log(res12[0]); // 'or'
 
 // String.prototype.matchAll
-for (let word of shakespeare.matchAll(/\w+ /g)) {
-    console.log(word[0]);
-}
-/*
-To 
-or 
-not 
-to 
-that 
-is 
-the 
-*/
+// for (let word of shakespeare.matchAll(/\w+ /g)) {
+//     console.log(word[0]);
+// }
+// /*
+// To
+// or
+// not
+// to
+// that
+// is
+// the
+// */
