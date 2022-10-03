@@ -95,7 +95,7 @@ try {
 block_label: {
     for (let i = 0; i < 10; i++) {
         console.log(i)
-        if (i === 5) {
+        if (i === 3) {
             break block_label
         }
     }
