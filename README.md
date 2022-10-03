@@ -38,7 +38,7 @@
 
 [Прототипы](notes/JavaScript/prototypes.md "prototypes") ✔️➕
 
-[ASI](notes/JavaScript/asi.md "Automatic Semicondactor Insertion") ✔️
+[ASI](notes/JavaScript/asi.md "Automatic Semicondactor Insertion") ✔️➕
 
 ## JavaScript: типы
 [`Set`, `Map`, `WeakSet`, `WeakMap`](notes/JavaScript_types/set_map_weak.md "Set, Map, WeakSet, WeakMap") ✔️➕
