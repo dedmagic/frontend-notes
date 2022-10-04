@@ -4,7 +4,7 @@
 
 Процесс преобразования исходного кода программы в готовый продукт. Может содержать различные преобразования, список которых приведён ниже.
 
-Примеры сборщиков: [Webpack](https://webpack.js.org/ "Webpack"), [gulp](https://gulpjs.com/ "gulp"), [grunt](https://gruntjs.com/ "grunt"), [Parcel](https://parceljs.org/ "Parcel").
+Примеры сборщиков: [Webpack](https://webpack.js.org/ "Webpack"), [gulp](https://gulpjs.com/ "gulp"), [grunt](https://gruntjs.com/ "grunt"), [Parcel](https://parceljs.org/ "Parcel"), [esbuild](https://esbuild.github.io/), [rollup.js](https://rollupjs.org/guide/en/).
 
 ## Транспиляция
 
