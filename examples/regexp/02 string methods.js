@@ -10,49 +10,46 @@ const regexp = /on|no/gi
 
 // const res3 = shakespeare.search(/to/i) // flag 'i' used
 // console.log(res3) //--> 0
-
-// // Примечание: параметр-строка преобразуется в объект RegExp
 //#endregion String.prototype.search
 
 //#region String.prototype.replace
 // const res4 = shakespeare.replace(regexp, '42')
-// console.log(res4) // To be, or 42t to be, that is the questi42!
+// console.log(res4) //--> To be, or 42t to be, that is the questi42!
 
 // const res5 = shakespeare.replace(/(to) (be)/gi, '$2 $1') // Поменять слова местами (used groups)
-// console.log(res5) // be To, or not be to, that is the question!
+// console.log(res5) //--> be To, or not be to, that is the question!
 //#endregion String.prototype.replace
 
 //#region String.prototype.replace with function
-// function replacer(match, group1, group2, index, sourceString) {
-//   console.log({
-//     match,
-//     group1,
-//     group2,
-//     index,
-//     sourceString
-//   })
-//   return 42
-// }
+function replacer(match, group1, group2, index, sourceString) {
+  console.log({
+    match,
+    group1,
+    group2,
+    index,
+    sourceString
+  })
+  return match.toUpperCase()
+}
 
-// const res98 = shakespeare.replace(/(to) (be)/gi, replacer)
-// console.log(res98)
-// /* -->
-// {
-//   match: 'To be',
-//   group1: 'To',
-//   group2: 'be',
-//   index: 0,
-//   sourceString: 'To be, or not to be, that is the question!'
-// }
-// {
-//   match: 'to be',
-//   group1: 'to',
-//   group2: 'be',
-//   index: 14,
-//   sourceString: 'To be, or not to be, that is the question!'
-// }
-// 42, or not 42, that is the question!
-// */
+const res98 = shakespeare.replace(/(to) (be)/gi, replacer)
+console.log(res98) //--> TO BE, or not TO BE, that is the question!
+/* -->
+{
+  match: 'To be',
+  group1: 'To',
+  group2: 'be',
+  index: 0,
+  sourceString: 'To be, or not to be, that is the question!'
+}
+{
+  match: 'to be',
+  group1: 'to',
+  group2: 'be',
+  index: 14,
+  sourceString: 'To be, or not to be, that is the question!'
+}
+*/
 //#endregion String.prototype.replace with function
 
 //#region String.prototype.match with 'g' flag
@@ -94,11 +91,11 @@ const message = 'Write to me at superman@yandex.com. By!'
 //#endregion String.prototype.match without 'g' flag and with naming groups
 
 //#region String.prototype.match with 'g' and 'y' (sticky) flags
-const res10 = shakespeare.match(/\w+ /gy)
-console.log(res10) //--> ['To ']
+// const res10 = shakespeare.match(/\w+ /gy)
+// console.log(res10) //--> ['To ']
 
-const res11 = 'To be or not to be that is the question'.match(/\w+ /gy)
-console.log(res11) //--> ['To ', 'be ', 'or ', 'not ', 'to ', 'be ', 'that ', 'is ', 'the ', 'question ']
+// const res11 = 'To be or not to be that is the question'.match(/\w+ /gy)
+// console.log(res11) //--> ['To ', 'be ', 'or ', 'not ', 'to ', 'be ', 'that ', 'is ', 'the ', 'question ']
 //#endregion String.prototype.match with 'g' and 'y' (sticky) flags
 
 //#region String.prototype.match without 'g' and with 'y' and 'lastIndex'

@@ -18,3 +18,5 @@ console.log(regexp4); // --> /ol|lo/gi
 
 // // lower case only
 // const regexp6 = /ol|lo/Gi; // --> SyntaxError: Invalid regular expression flags
+
+console.log(typeof regexp2) // --> object
