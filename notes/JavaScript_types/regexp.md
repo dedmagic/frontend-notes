@@ -63,7 +63,6 @@ console.log(res3) //--> 0
 
 Примечание 2. Если аргументом является не регулярное выражение, то он будет преобразован в регулярное выражение путём передачи конструктору `RegExp`.
 
-
 ### String.prototype.replace
 
 Осуществляет замену найденной подстроки на указанную подстроку. Если указан флаг `g`, то будут заменены все найденные подстроки.
@@ -127,6 +126,75 @@ console.log(res98) //--> TO BE, or not TO BE, that is the question!
   sourceString: 'To be, or not to be, that is the question!'
 }
 ```
+
+### String.prototype.match
+
+Метод `match` осуществляет поиск подстроки в строке. В отличие от `search`, возвращает не индекс, а массив результатов или объект с метаданными результата. 
+
+
+#### Использование метода `match` с флагом `g`
+
+Вызов метода `match` с флагом `g` возвращает массив найденных совпадений или `null`, если они не найдены.
+
+```js
+const res6 = shakespeare.match(/\w+/g) // Разбиение на слова
+console.log(res6) //--> ['To', 'be', 'or', 'not', 'to', 'be', 'that', 'is', 'the', 'question']
+```
+
+### Метод `match` без флага `g`
+
+Вернёт объект, в котором в свойстве-индексе `[0]` будет найденная подстрока, в свойстве `index` – позиция найденной подстроки, в `input` – исходная строка.  
+
+```js
+const atRegExp = /@/
+const res7 = message.match(atRegExp)
+console.log(res7)
+/* -->
+[
+  '@',
+  index: 23,
+  input: 'Write to me at superman@yandex.com. By!',
+  groups: undefined // используется для обращения к именованным группам
+]
+*/
+```
+
+Если в поиске используются группы, то они раскладываются в индексируемые свойства `[1]`, `[2]`, `[3]` и т.д.
+
+```js
+const emailRegExp = /(\w+)@(\w+)\.(\w+)/
+const res8 = message.match(emailRegExp)
+console.log(res8[0]) //--> superman@yandex.com
+console.log(res8[1]) //--> superman
+console.log(res8[2]) //--> yandex
+console.log(res8[3]) //--> com
+```
+
+Если при поиске используются именованные группы, к ним можно обращаться как по индексам, так и по именам через свойство `groups`.
+
+```js
+const emailRegExpNamingGroups = /(?<user>\w+)@(?<domain2>\w+)\.(?<domain1>\w+)/
+const res9 = message.match(emailRegExpNamingGroups)
+console.log(res9.groups.user) //--> superman
+console.log(res9.groups.domain2) //--> yandex
+console.log(res9.groups.domain1) //--> com
+```
+
+#### Флаг `y` (sticky)
+
+Обычно при поиске между найденными подстроками могут располагаться другие символы. Использование флага `y` приводит к тому, что результаты должны плотно прилегать друг к другу, т.е. каждый следующий должен начинаться сразу, как только закончился предыдущий. При этом первая найденная подстрока должна обязательно совпадать с начало строки (т.е. начинаться в позиции с индексом 0). 
+
+```js
+const res10 = shakespeare.match(/\w+ /gy) // Слово с пробелом в конце
+console.log(res10) //--> ['To ']
+
+const res11 = 'To be or not to be that is the question'.match(/\w+ /gy)
+console.log(res11) //--> ['To ', 'be ', 'or ', 'not ', 'to ', 'be ', 'that ', 'is ', 'the ']
+```
+
+В первом примере была найдена только подстрока `To`, т.к. сразу за нею следует текст `be,` (запятая в конце).
+
+Во втором примере обрати внимание, бро, на отсутствие последнего слова, т.к. после него не следует пробел.
 
 **********************************
 

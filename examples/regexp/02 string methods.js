@@ -21,35 +21,35 @@ const regexp = /on|no/gi
 //#endregion String.prototype.replace
 
 //#region String.prototype.replace with function
-function replacer(match, group1, group2, index, sourceString) {
-  console.log({
-    match,
-    group1,
-    group2,
-    index,
-    sourceString
-  })
-  return match.toUpperCase()
-}
+// function replacer(match, group1, group2, index, sourceString) {
+//   console.log({
+//     match,
+//     group1,
+//     group2,
+//     index,
+//     sourceString
+//   })
+//   return match.toUpperCase()
+// }
 
-const res98 = shakespeare.replace(/(to) (be)/gi, replacer)
-console.log(res98) //--> TO BE, or not TO BE, that is the question!
-/* -->
-{
-  match: 'To be',
-  group1: 'To',
-  group2: 'be',
-  index: 0,
-  sourceString: 'To be, or not to be, that is the question!'
-}
-{
-  match: 'to be',
-  group1: 'to',
-  group2: 'be',
-  index: 14,
-  sourceString: 'To be, or not to be, that is the question!'
-}
-*/
+// const res98 = shakespeare.replace(/(to) (be)/gi, replacer)
+// console.log(res98) //--> TO BE, or not TO BE, that is the question!
+// /* -->
+// {
+//   match: 'To be',
+//   group1: 'To',
+//   group2: 'be',
+//   index: 0,
+//   sourceString: 'To be, or not to be, that is the question!'
+// }
+// {
+//   match: 'to be',
+//   group1: 'to',
+//   group2: 'be',
+//   index: 14,
+//   sourceString: 'To be, or not to be, that is the question!'
+// }
+// */
 //#endregion String.prototype.replace with function
 
 //#region String.prototype.match with 'g' flag
@@ -63,6 +63,7 @@ const message = 'Write to me at superman@yandex.com. By!'
 // const atRegExp = /@/
 // const res7 = message.match(atRegExp)
 // console.log(res7)
+// console.log(res7[0])
 // /* -->
 // [
 //   '@',
@@ -80,6 +81,7 @@ const message = 'Write to me at superman@yandex.com. By!'
 // console.log(res8[1]) //--> superman
 // console.log(res8[2]) //--> yandex
 // console.log(res8[3]) //--> com
+// // console.log(res8)
 //#endregion String.prototype.match without 'g' flag and with groups
 
 //#region String.prototype.match without 'g' flag and with naming groups
@@ -91,18 +93,18 @@ const message = 'Write to me at superman@yandex.com. By!'
 //#endregion String.prototype.match without 'g' flag and with naming groups
 
 //#region String.prototype.match with 'g' and 'y' (sticky) flags
-// const res10 = shakespeare.match(/\w+ /gy)
+// const res10 = shakespeare.match(/\w+ /gy) // Слово с пробелом в конце
 // console.log(res10) //--> ['To ']
 
 // const res11 = 'To be or not to be that is the question'.match(/\w+ /gy)
-// console.log(res11) //--> ['To ', 'be ', 'or ', 'not ', 'to ', 'be ', 'that ', 'is ', 'the ', 'question ']
+// console.log(res11) //--> ['To ', 'be ', 'or ', 'not ', 'to ', 'be ', 'that ', 'is ', 'the ']
 //#endregion String.prototype.match with 'g' and 'y' (sticky) flags
 
 //#region String.prototype.match without 'g' and with 'y' and 'lastIndex'
-// const wordWithSpaceRegExp = /\w+ /y
-// wordWithSpaceRegExp.lastIndex = 7
-// const res12 = shakespeare.match(wordWithSpaceRegExp)
-// console.log(res12[0]) //--> 'or'
+const wordWithSpaceRegExp = /\w+ /y
+wordWithSpaceRegExp.lastIndex = 7
+const res12 = shakespeare.match(wordWithSpaceRegExp)
+console.log(res12[0]) //--> 'or'
 //#endregion String.prototype.match without 'g' and with 'y' and 'lastIndex'
 
 //#region String.prototype.match - not found
