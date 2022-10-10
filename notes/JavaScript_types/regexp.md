@@ -141,7 +141,7 @@ const res6 = shakespeare.match(/\w+/g) // Разбиение на слова
 console.log(res6) //--> ['To', 'be', 'or', 'not', 'to', 'be', 'that', 'is', 'the', 'question']
 ```
 
-### Метод `match` без флага `g`
+#### Метод `match` без флага `g`
 
 Вернёт объект, в котором в свойстве-индексе `[0]` будет найденная подстрока, в свойстве `index` – позиция найденной подстроки, в `input` – исходная строка.  
 
@@ -195,6 +195,96 @@ console.log(res11) //--> ['To ', 'be ', 'or ', 'not ', 'to ', 'be ', 'that ', 'i
 В первом примере была найдена только подстрока `To`, т.к. сразу за нею следует текст `be,` (запятая в конце).
 
 Во втором примере обрати внимание, бро, на отсутствие последнего слова, т.к. после него не следует пробел.
+
+#### Стартовая позиция для поиска: `lastIndex`
+
+При использовании регулярного выражения без ключа `g` и с ключом `y` можно задать стартовую позицию для поиска.
+
+```js
+const wordWithSpaceRegExp = /\w+ /y
+const res12 = shakespeare.match(wordWithSpaceRegExp)
+console.log(res12[0]) //--> 'To'
+wordWithSpaceRegExp.lastIndex = 7
+const res13 = shakespeare.match(wordWithSpaceRegExp)
+console.log(res13[0]) //--> 'or'
+```
+
+#### Метод `match` – совпадений не найдено
+
+В случае, если метод `match` не нашёл в строке совпадений, он возвращает значение `null`.
+
+```js
+const res97 = shakespeare.match('Billy Joel')
+console.log(res97) // --> null
+```
+
+### Метод `matchAll`
+
+Метод `matchAll` используется только с глобальными регулярными выражениями и возвращает итератор для прохода по результатам поиска.
+
+```js
+ // Слова, оканчивающиеся пробелом
+for (let word of shakespeare.matchAll(/\w+ /g)) {
+  console.log(word[0])
+}
+/* -->
+To
+or
+not
+to
+that
+is
+the
+*/
+```
+
+Если попытаться вызвать метод `matchAll` для неглобального регулярного выражения, то получим исключение.
+
+```js
+for (let word of shakespeare.matchAll(/\w+ /)) {
+  console.log(word[0])
+}
+
+// --> TypeError: String.prototype.matchAll called with a non-global RegExp argument
+```
+
+### Метод `split`
+
+Метод `split` используется для разбиения строки на массив подстрок, используя указанный разделитель, причём разделителем может быть как строка, так и регулярное выражение.
+
+```js
+const res14 = shakespeare.split(/\s/)
+console.log(res14)
+/* -->
+[
+  'To',   'be,',
+  'or',   'not',
+  'to',   'be,',
+  'that', 'is',
+  'the',  'question!'
+]
+*/
+```
+
+Если разделитель содержит группы, то они тоже будут включены в результат разбиения.
+
+```js
+// Разбивать по запятым и восклицательным знакам
+const res15 = shakespeare.split(/([,!])/)
+console.log(res15)
+/* -->
+[
+  'To be',
+  ',',
+  ' or not to be',
+  ',',
+  ' that is the question',
+  '!',
+  ''
+]
+*/
+```
+
 
 **********************************
 

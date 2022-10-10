@@ -101,10 +101,12 @@ const message = 'Write to me at superman@yandex.com. By!'
 //#endregion String.prototype.match with 'g' and 'y' (sticky) flags
 
 //#region String.prototype.match without 'g' and with 'y' and 'lastIndex'
-const wordWithSpaceRegExp = /\w+ /y
-wordWithSpaceRegExp.lastIndex = 7
-const res12 = shakespeare.match(wordWithSpaceRegExp)
-console.log(res12[0]) //--> 'or'
+// const wordWithSpaceRegExp = /\w+ /y
+// const res12 = shakespeare.match(wordWithSpaceRegExp)
+// console.log(res12[0]) //--> 'To'
+// wordWithSpaceRegExp.lastIndex = 7
+// const res13 = shakespeare.match(wordWithSpaceRegExp)
+// console.log(res13[0]) //--> 'or'
 //#endregion String.prototype.match without 'g' and with 'y' and 'lastIndex'
 
 //#region String.prototype.match - not found
@@ -112,12 +114,11 @@ console.log(res12[0]) //--> 'or'
 // console.log(res97) // --> null
 //#endregion String.prototype.match - not found
 
-
 //#region String.prototype.matchAll
 // for (let word of shakespeare.matchAll(/\w+ /g)) {
-//     console.log(word[0])
+//   console.log(word[0])
 // }
-// /*
+// /* -->
 // To
 // or
 // not
@@ -126,4 +127,38 @@ console.log(res12[0]) //--> 'or'
 // is
 // the
 // */
+
+// for (let word of shakespeare.matchAll(/\w+ /)) { // --> TypeError: String.prototype.matchAll called with a non-global RegExp argument
+//   console.log(word[0])
+// }
 //#endregion String.prototype.matchAll
+
+//#region String.prototype.split
+// const res14 = shakespeare.split(/\s/)
+// console.log(res14)
+// /* -->
+// [
+//   'To',   'be,',
+//   'or',   'not',
+//   'to',   'be,',
+//   'that', 'is',
+//   'the',  'question!'
+// ]
+// */
+//#endregion String.prototype.split
+
+//#region String.prototype.split with groups
+const res15 = shakespeare.split(/([,!])/)
+console.log(res15)
+/* -->
+[
+  'To be',
+  ',',
+  ' or not to be',
+  ',',
+  ' that is the question',
+  '!',
+  ''
+]
+*/
+//#endregion String.prototype.split with groups
