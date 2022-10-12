@@ -285,6 +285,85 @@ console.log(res15)
 */
 ```
 
+## Конструкторы типа `RegExp`
+
+### Экранирование обратных слешей
+
+Не всегда одно и то же регулярное выражение будет выглядеть одинаково при задании с помощью литерала и с помощью конструктора.
+
+Пример:
+
+```js
+const shakespeare = 'To be, or not to be, that is the question!'
+
+// Слово с последующим пробелом
+const regexp1 = /\w+ / // 
+const res1 = shakespeare.match(regexp1)
+console.log(res1)
+/* -->
+[
+  'To ',
+  index: 0,
+  input: 'To be, or not to be, that is the question!',
+  groups: undefined
+]
+*/
+```
+
+Но если указать точно такое же регулярное выражение в конструкторе, то результать будет другим:
+
+```js
+const regexp2 = new RegExp('\w+ ')
+const res2 = shakespeare.match(regexp2)
+console.log(res2) // --> null
+```
+
+Причина в том, что в конструктор регулярное выражение передаётся как строка, а в строках обратный слеш имеет своё, особое значение – экранирование управляющих символов.  
+Поэтому в конструкторах сам обратный слеш нужно экранировать:
+
+```js
+const regexp3 = new RegExp('\\w+ ')
+const res3 = shakespeare.match(regexp3)
+console.log(res3)
+
+/* -->
+[
+  'To ',
+  index: 0,
+  input: 'To be, or not to be, that is the question!',
+  groups: undefined
+]
+*/
+```
+
+### Флаги регулярного выражения в конструкторе
+
+В конструкторе типа `RegExp` может быть второй параметр-строка, в котором перечисляются флаги регулярного выражения. Так же, как и в литералах, порядок флагов не важен, регистр – важен.
+
+```js
+const regexp4 = new RegExp('\\w+ ', 'gi')
+const res4 = shakespeare.match(regexp4)
+console.log(res4) // -->['To ', 'or ', 'not ', 'to ', 'that ', 'is ', 'the ']
+```
+
+### Создание регулярного выражения на основе регулярного выражения
+
+В качестве первого параметра конструктора вместо строки может использоваться другое регулярное выражение. Таким образом можно, например, создавать регулярное выражение, аналогичное уже существующему, но с добавлением к нему флагов.
+
+```js
+const regexp6 = new RegExp('\\w+ ')
+const regexp5 = new RegExp(regexp6, 'g')
+const res5 = shakespeare.match(regexp5)
+console.log(res5) // -->['To ', 'or ', 'not ', 'to ', 'that ', 'is ', 'the ']
+```
+
+Причём таким образом можно только добавить флаги, удалить не получится:
+
+```js
+console.log(regexp5) // --> /\w+ /g
+const regexp7 = new RegExp(regexp5)
+console.log(regexp7) // --> /\w+ /g
+```
 
 **********************************
 
