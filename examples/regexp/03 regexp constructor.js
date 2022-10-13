@@ -1,4 +1,5 @@
 const shakespeare = 'To be, or not to be, that is the question!'
+
 //#region Escape backslashes
 
 // // Слово с последующим пробелом
@@ -43,8 +44,9 @@ const regexp6 = new RegExp('\\w+ ')
 const regexp5 = new RegExp(regexp6, 'g')
 const res5 = shakespeare.match(regexp5)
 console.log(res5) // -->['To ', 'or ', 'not ', 'to ', 'that ', 'is ', 'the ']
+
+console.log(regexp5) // --> /\w+ /g
+const regexp7 = new RegExp(regexp5)
+console.log(regexp7) // --> /\w+ /g
 //#endregion RegExp from RegExp
 
-console.log(regexp5)
-const regexp7 = new RegExp(regexp5)
-console.log(regexp7)

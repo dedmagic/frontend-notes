@@ -365,6 +365,41 @@ const regexp7 = new RegExp(regexp5)
 console.log(regexp7) // --> /\w+ /g
 ```
 
+## Свойства объекта типа `RegExp`
+
+* Свойство только для чтений `source` содержит исходный код регулярного выражения, т.е. текст, который в литерале находится между слешами
+* `flags` – содержит все флаги в виде строки; только для чтения
+* `global`, `ignoreCase`, `multiline`, `dotAll`, `sticky` – булевские свойства, содержащие `true` или `false` в зависимости от того, включён соответствующий режим или нет (т.е. присутствует или отсутствует флаг); только для чтения
+* `lastIndex` – поддерживает как чтение, так и запись; задаёт позицию, начиная с которой будет производится поиск
+
+```js
+const regexp = /\w+ /gi;
+
+console.log(regexp.source) // --> \w+
+
+//#region flags
+console.log(regexp.flags) // --> gi
+
+// flag 'g'
+console.log(regexp.global) // --> true
+// flag 'i'
+console.log(regexp.ignoreCase) // --> true
+// flag 'm'
+console.log(regexp.multiline) // --> false
+// flag 's'
+console.log(regexp.dotAll) // --> false
+// flag 'y'
+console.log(regexp.sticky) // --> false
+//#endregion flags
+
+console.log(regexp.lastIndex) // --> 0
+regexp.lastIndex = 10;
+console.log(regexp.lastIndex) // --> 10
+```
 **********************************
 
 ## Методы типа RegExp
+
+
+
+*** смещается ли `lastIndex` автоматически при использовании каких-либо методов?
