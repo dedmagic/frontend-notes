@@ -21,7 +21,7 @@ console.log(arr); // --> [ 1, 2, 42, 4 ]
 
 Разреженный массив может появится в следующих случаях:
 
-* какие из элементов удалены (`delete`)
+* какие-то из элементов удалены (`delete`)
 
 ```js
 const arr1 = [1, 2, 3, 4];
@@ -190,4 +190,12 @@ console.log(bigs1); // --> [ 96, 123 ]
 ```js
 const bigs2 = Array.from(numbers).filter(item => item > 50);
 console.log(bigs2); // --> [ 96, 123 ]
+```
+
+3. Изменить тип объекта на тип `Array`
+
+```js
+numbers.__proto__ = Array.prototype
+const bigs3 = numbers.filter(item => item > 50);
+console.log(bigs3) // --> [ 96, 123 ]
 ```
