@@ -467,3 +467,131 @@ console.log(res1) // --> false
 ```
 
 ### RegExp.prototype.exec
+
+При вызове метода `RegExp.prototype.exec` для регулярного выражения без флага `g` этот метод ведёт себя аналогично `String.prototype.match`.
+
+```js
+const message = 'Write to me at superman@yandex.com. By!'
+
+//#region RegExp.prototype.exec without `g` and without groups
+const atRegExp = /@/
+const res2 = atRegExp.exec(message)
+console.log(res2)
+console.log(res2[0]) // --> @
+/* -->
+[
+  '@',
+  index: 23,
+  input: 'Write to me at superman@yandex.com. By!',
+  groups: undefined
+]
+*/
+//#endregion RegExp.prototype.exec without `g` and without groups
+
+//#region RegExp.prototype.exec without `g` and with groups
+const emailRegExp = /(\w+)@(\w+)\.(\w+)/
+const res3 = emailRegExp.exec(message)
+console.log(res3[0]) //--> superman@yandex.com
+console.log(res3[1]) //--> superman
+console.log(res3[2]) //--> yandex
+console.log(res3[3]) //--> com
+
+console.log(res3)
+/* -->
+[
+  'superman@yandex.com',
+  'superman',
+  'yandex',
+  'com',
+  index: 15,
+  input: 'Write to me at superman@yandex.com. By!',
+  groups: undefined
+]
+*/
+//#endregion RegExp.prototype.exec without `g` and with groups
+
+//#region RegExp.prototype.exec without 'g' flag and with naming groups
+const emailRegExpNamingGroups = /(?<user>\w+)@(?<domain2>\w+)\.(?<domain1>\w+)/
+const res4 = emailRegExpNamingGroups.exec(message)
+console.log(res4.groups.user) //--> superman
+console.log(res4.groups.domain2) //--> yandex
+console.log(res4.groups.domain1) //--> com
+//#endregion RegExp.prototype.exec without 'g' flag and with naming groups
+```
+
+При использовании в регулярном выражении флага `g` метод `RegExp.prototype.exec` всегда будет возвращать такой же объект, как и при отсутствии этого флага, но учитывает значение свойства `lastIndex`, которое изменяется после каждого поиска:
+
+```js
+const regexp5 = /\w+/g;
+console.log({ lastIndex: regexp5.lastIndex })
+
+const res51 = regexp5.exec(shakespeare)
+console.log(res51)
+console.log({ lastIndex: regexp5.lastIndex })
+
+const res52 = regexp5.exec(shakespeare)
+console.log(res52)
+console.log({ lastIndex: regexp5.lastIndex })
+
+/* -->
+{ lastIndex: 0 }
+[
+  'To',
+  index: 0,
+  input: 'To be, or not to be, that is the question!',
+  groups: undefined
+]
+{ lastIndex: 2 }
+[
+  'be',
+  index: 3,
+  input: 'To be, or not to be, that is the question!',
+  groups: undefined
+]
+{ lastIndex: 5 }
+*/
+```
+
+Соответственно, найти все вхождения можно при помощи цикла:
+
+```js
+let res53;
+while ((res53 = regexp5.exec(shakespeare)) !== null) {
+  console.log({ word: res53[0] })
+}
+
+/* -->
+{ word: 'To' }
+{ word: 'be' }
+{ word: 'or' }
+{ word: 'not' }
+{ word: 'to' }
+{ word: 'be' }
+{ word: 'that' }
+{ word: 'is' }
+{ word: 'the' }
+{ word: 'question' }
+*/
+```
+
+Лог изменений свойства `lastIndex`:
+
+```js
+let res53;
+while ((res53 = regexp5.exec(shakespeare)) !== null) {
+  console.log({ word: res53[0], lastIndex: regexp5.lastIndex })
+}
+
+/* -->
+{ word: 'To', lastIndex: 2 }
+{ word: 'be', lastIndex: 5 }
+{ word: 'or', lastIndex: 9 }
+{ word: 'not', lastIndex: 13 }
+{ word: 'to', lastIndex: 16 }
+{ word: 'be', lastIndex: 19 }
+{ word: 'that', lastIndex: 25 }
+{ word: 'is', lastIndex: 28 }
+{ word: 'the', lastIndex: 32 }
+{ word: 'question', lastIndex: 41 }
+*/
+```
