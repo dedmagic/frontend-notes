@@ -1,60 +1,44 @@
 const shakespeare = 'To be, or not to be, that is the question!'
-const regexp = /on|no/gi
+const regexp = /on|no/ig
 
 //#region String.prototype.search
-// const res1 = shakespeare.search(regexp) // flag 'g' ignored
-// console.log(res1) //--> 10
+// const res1 = shakespeare.search(regexp)
+// console.log(res1)
 
 // const res2 = 'Hello world!'.search(regexp)
-// console.log(res2) //--> -1
+// console.log(res2)
 
-// const res3 = shakespeare.search(/to/i) // flag 'i' used
-// console.log(res3) //--> 0
+// const res3 = shakespeare.search(/to/ig)
+// console.log(res3)
 //#endregion String.prototype.search
 
 //#region String.prototype.replace
 // const res4 = shakespeare.replace(regexp, '42')
-// console.log(res4) //--> To be, or 42t to be, that is the questi42!
+// console.log(res4)
 
-// const res5 = shakespeare.replace(/(to) (be)/gi, '$2 $1') // Поменять слова местами (used groups)
-// console.log(res5) //--> be To, or not be to, that is the question!
+// const res5 = shakespeare.replace(/to be/gi, '$2 $1')
+// console.log(res5)
 //#endregion String.prototype.replace
 
 //#region String.prototype.replace with function
 // function replacer(match, group1, group2, index, sourceString) {
-//   console.log({
-//     match,
-//     group1,
-//     group2,
-//     index,
-//     sourceString
-//   })
+//   // console.log({
+//   //   match,
+//   //   group1,
+//   //   group2,
+//   //   index,
+//   //   sourceString
+//   // })
 //   return match.toUpperCase()
 // }
 
 // const res98 = shakespeare.replace(/(to) (be)/gi, replacer)
-// console.log(res98) //--> TO BE, or not TO BE, that is the question!
-// /* -->
-// {
-//   match: 'To be',
-//   group1: 'To',
-//   group2: 'be',
-//   index: 0,
-//   sourceString: 'To be, or not to be, that is the question!'
-// }
-// {
-//   match: 'to be',
-//   group1: 'to',
-//   group2: 'be',
-//   index: 14,
-//   sourceString: 'To be, or not to be, that is the question!'
-// }
-// */
+// console.log(res98)
 //#endregion String.prototype.replace with function
 
 //#region String.prototype.match with 'g' flag
-// const res6 = shakespeare.match(/\w+/g) // Разбиение на слова
-// console.log(res6) //--> ['To', 'be', 'or', 'not', 'to', 'be', 'that', 'is', 'the', 'question']
+// const res6 = shakespeare.match(/\w+/g)
+// console.log(res6)
 //#endregion String.prototype.match with 'g' flag
 
 const message = 'Write to me at superman@yandex.com. By!'
@@ -64,71 +48,58 @@ const message = 'Write to me at superman@yandex.com. By!'
 // const res7 = message.match(atRegExp)
 // console.log(res7)
 // console.log(res7[0])
-// /* -->
-// [
-//   '@',
-//   index: 23,
-//   input: 'Write to me at superman@yandex.com. By!',
-//   groups: undefined
-// ]
-// */
 //#endregion String.prototype.match without 'g' flag and without groups
 
 //#region String.prototype.match without 'g' flag and with groups
 // const emailRegExp = /(\w+)@(\w+)\.(\w+)/
 // const res8 = message.match(emailRegExp)
-// console.log(res8[0]) //--> superman@yandex.com
-// console.log(res8[1]) //--> superman
-// console.log(res8[2]) //--> yandex
-// console.log(res8[3]) //--> com
-// // console.log(res8)
+// // console.log(res8[0])
+// // console.log(res8[1])
+// // console.log(res8[2])
+// // console.log(res8[3])
+// console.log(res8)
 //#endregion String.prototype.match without 'g' flag and with groups
 
 //#region String.prototype.match without 'g' flag and with naming groups
 // const emailRegExpNamingGroups = /(?<user>\w+)@(?<domain2>\w+)\.(?<domain1>\w+)/
 // const res9 = message.match(emailRegExpNamingGroups)
-// console.log(res9.groups.user) //--> superman
-// console.log(res9.groups.domain2) //--> yandex
-// console.log(res9.groups.domain1) //--> com
+// console.log(res9.groups.user)
+// console.log(res9.groups.domain2)
+// console.log(res9.groups.domain1)
+// console.log(res9)
+
 //#endregion String.prototype.match without 'g' flag and with naming groups
 
 //#region String.prototype.match with 'g' and 'y' (sticky) flags
-// const res10 = shakespeare.match(/\w+ /gy) // Слово с пробелом в конце
-// console.log(res10) //--> ['To ']
+// const res10 = shakespeare.match(/\w+ /gy)
+// console.log(res10)
 
-// const res11 = 'To be or not to be that is the question'.match(/\w+ /gy)
-// console.log(res11) //--> ['To ', 'be ', 'or ', 'not ', 'to ', 'be ', 'that ', 'is ', 'the ']
+// const res11 = 'To be or not to be that is the question '.match(/\w+/gy)
+// console.log(res11)
 //#endregion String.prototype.match with 'g' and 'y' (sticky) flags
+
+//----------------------------------
 
 //#region String.prototype.match without 'g' and with 'y' and 'lastIndex'
 // const wordWithSpaceRegExp = /\w+ /y
 // const res12 = shakespeare.match(wordWithSpaceRegExp)
-// console.log(res12[0]) //--> 'To'
+// console.log(res12[0])
 // wordWithSpaceRegExp.lastIndex = 7
 // const res13 = shakespeare.match(wordWithSpaceRegExp)
-// console.log(res13[0]) //--> 'or'
+// console.log(res13[0])
 //#endregion String.prototype.match without 'g' and with 'y' and 'lastIndex'
 
 //#region String.prototype.match - not found
 // const res97 = shakespeare.match('Billy Joel')
-// console.log(res97) // --> null
+// console.log(res97)
 //#endregion String.prototype.match - not found
 
 //#region String.prototype.matchAll
 // for (let word of shakespeare.matchAll(/\w+ /g)) {
 //   console.log(word[0])
 // }
-// /* -->
-// To
-// or
-// not
-// to
-// that
-// is
-// the
-// */
 
-// for (let word of shakespeare.matchAll(/\w+ /)) { // --> TypeError: String.prototype.matchAll called with a non-global RegExp argument
+// for (let word of shakespeare.matchAll(/\w+ /))
 //   console.log(word[0])
 // }
 //#endregion String.prototype.matchAll
@@ -136,29 +107,9 @@ const message = 'Write to me at superman@yandex.com. By!'
 //#region String.prototype.split
 // const res14 = shakespeare.split(/\s/)
 // console.log(res14)
-// /* -->
-// [
-//   'To',   'be,',
-//   'or',   'not',
-//   'to',   'be,',
-//   'that', 'is',
-//   'the',  'question!'
-// ]
-// */
 //#endregion String.prototype.split
 
 //#region String.prototype.split with groups
-const res15 = shakespeare.split(/([,!])/)
-console.log(res15)
-/* -->
-[
-  'To be',
-  ',',
-  ' or not to be',
-  ',',
-  ' that is the question',
-  '!',
-  ''
-]
-*/
+// const res15 = shakespeare.split(/([,!])/)
+// console.log(res15)
 //#endregion String.prototype.split with groups
