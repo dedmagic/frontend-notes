@@ -57,7 +57,7 @@
 
 [string](notes/JavaScript_types/string.md "string") ✔️➕
 
-[Array](notes/JavaScript_types/array.md "Array") ✔️
+[Array](notes/JavaScript_types/array.md "Array") ✔️➕
 
 [RegExp](notes/JavaScript_types/regexp.md "RegExp") ✔️
 
