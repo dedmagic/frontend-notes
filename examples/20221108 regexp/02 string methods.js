@@ -74,7 +74,7 @@ const message = 'Write to me at superman@yandex.com. By!'
 // const res10 = shakespeare.match(/\w+ /gy)
 // console.log(res10)
 
-// const res11 = 'To be or not to be that is the question '.match(/\w+/gy)
+// const res11 = 'To be or not to be that is the question '.match(/\w+ /gy)
 // console.log(res11)
 //#endregion String.prototype.match with 'g' and 'y' (sticky) flags
 
@@ -96,20 +96,20 @@ const message = 'Write to me at superman@yandex.com. By!'
 
 //#region String.prototype.matchAll
 // for (let word of shakespeare.matchAll(/\w+ /g)) {
-//   console.log(word[0])
+//   console.log(word)
 // }
 
-// for (let word of shakespeare.matchAll(/\w+ /))
+// for (let word of shakespeare.matchAll(/\w+ /)) {
 //   console.log(word[0])
 // }
 //#endregion String.prototype.matchAll
 
 //#region String.prototype.split
-// const res14 = shakespeare.split(/\s/)
+// const res14 = shakespeare.split(/(\s)/)
 // console.log(res14)
 //#endregion String.prototype.split
 
 //#region String.prototype.split with groups
-// const res15 = shakespeare.split(/([,!])/)
-// console.log(res15)
+const res15 = shakespeare.split(/([,!])/)
+console.log(res15)
 //#endregion String.prototype.split with groups
