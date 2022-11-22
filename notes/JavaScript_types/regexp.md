@@ -602,7 +602,7 @@ while ((res53 = regexp5.exec(shakespeare)) !== null) {
 */
 ```
 
-### RegExp.prototype.exec – проблемы
+### RegExp.prototype.lastIndex – проблемы
 
 Использование метода `RegExp.prototype.exec` для поиска всех вхождений чревато проблемами, поэтому вместо него лучше использовать новый метод `String.prototype.matchAll`.
 
