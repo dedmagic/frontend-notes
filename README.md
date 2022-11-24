@@ -59,7 +59,7 @@
 
 [Array](notes/JavaScript_types/array.md "Array") ✔️➕
 
-[RegExp](notes/JavaScript_types/regexp.md "RegExp") ✔️
+[RegExp](notes/JavaScript_types/regexp.md "RegExp") ✔️➕
 
 ## Экосистема
 [Node.js](notes/Ecosystem/Node.md) ✔️➕
