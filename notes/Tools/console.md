@@ -19,6 +19,8 @@ console.log({ name }); // { name: 'Mark Knopfler' }
 
 ![console.error & console.warn](img/console01.png)
 
+__Примечание:__ `warn` и `error` кроме отображения значения ещё позволяют посмотреть стек вызовов.
+
 Есть ещё `console.debug(текст)` – как работает, не очень понятно: в FF так же, как и `console.log`, в Google Chrome вообще ничего не вывелось. Но участвует в фильтрации сообщений (см. ниже).
 
 Сообщения в консоли можно фильтровать по уровню (info, warn, debug, ...). На скриншоте FF rus и Google Chrom eng:
