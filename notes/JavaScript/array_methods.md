@@ -1,6 +1,24 @@
 # Методы массивов
 
-+ Выполнение функции (callback) для каждого элемента массива (**forEach**)
+* [Выполнение функции (callback) для каждого элемента массива (`forEach`)](#foreach)
+* [Объект контекста (`this`) в функциях `forEach`, `map`, `filter`, `flatMap`](#this)
+* [Проекция данных (`map`)](#map)
+* [Выборка элементов (`filter`)](#filter)
+  * [Удаление всех `false`-значений (`filter`)](#remove-falsy)
+* [Поиск элемента в массиве (`find`)](#find)
+* [Проверка: все элементы соответствуют условию (`every`)](#every)
+* [Проверка: хотя бы один элемент соответствует условию (`some`)](#some)
+* [Сортировка массива (`sort`)](#sort)
+  * [Использование сортировки в цепочках (`sort`)](#sort-in-pipe)
+* [Проверка нескольких условий (`includes`)](#includes)
+* [Спрямление вложенности (`flat`)](#flat)
+* [Два в одном: `map` + `flat` (`flatMap`)](#flatMap)
+* [Вычисление аггрегирующего значения (`reduce`)](#reduce)
+
+<div id='foreach' />
+
+### Выполнение функции (callback) для каждого элемента массива (`forEach`) 
+
 ```javascript
 let array = [4, 3, 2, 9, 7, 5];
 
@@ -11,7 +29,9 @@ console.log('----------------');
 array.forEach((el, ind, arr) => console.log({el, ind, arr}));
 ```
 
-+ Объект контекста (`this`) в функциях `forEach`, `map`, `filter`, `flatMap`
+<div id='this' />
+
+### Объект контекста (`this`) в функциях `forEach`, `map`, `filter`, `flatMap` <div id='this' />
 ```javascript
 class SpeakingMan {
     constructor (name) {
@@ -38,8 +58,9 @@ mark.say('Hello!');
 
 mark.speech(['Hello everybody!', 'Peace to all!', 'Sex, drugs and rock-n-roll!']);
 ```
+<div id='map' />
 
-+ Проекция данных (**map**)
+### Проекция данных (`map`)
 ```javascript
 var nums = [10, 20, 30, 40];
 // Возведение числа в степень, соответствующую его индексу в массиве
@@ -52,7 +73,10 @@ console.log(nums); // [10, 20, 30, 40]
 console.log(results); // [1, 20, 900, 64000]
 ```
 
-+ Выборка элементов (**filter**)
+<div id='filter' />
+
+### Выборка элементов (`filter`)
+
 ```javascript
 let arr = [4, 3, 2, 9, 3, 45, 5, 2];
 
@@ -60,14 +84,18 @@ let choosen = arr.filter(el => el > 4);
 console.log(choosen); // [ 9, 45, 5 ]
 ```
 
-+ Удаление всех `false`-значений (**filter**)
+<div id='remove-falsy' />
+
+### Удаление всех `false`-значений (`filter`)
 ```javascript
 const arr = [0, null, 42, undefined, "", true, false, NaN, '', "foo bar"];
 const trueOnly = arr.filter(Boolean);
 console.log(trueOnly); // [42, true, "foo bar"]
 ```
 
-+ Поиск элемента в массиве (**find**)
+<div id='find' />
+
+### Поиск элемента в массиве (`find`)
 ```javascript
 const arr = [
   { name: 'Den', weight: 70, iq: 130 },
@@ -84,7 +112,9 @@ console.log(smarts);
 
 Примечание: если элементов, соответствующих условию, больше одного, то будет найден первый из них.
 
-+ Проверка: все элементы соответствуют условию (**every**)
+<div id='every' />
+
+### Проверка: все элементы соответствуют условию (`every`)
 ```javascript
 var arr1 = [5, 5, 5, 6, 5, 5];
 var result1 = arr1.every(el => el === 5);
@@ -95,7 +125,9 @@ var result2 = arr2.every(el => el === 5);
 console.log(result2); // true
 ```
 
-+ Проверка: хотя бы один элемент соответствует условию (**some**)
+<div id='some' />
+
+### Проверка: хотя бы один элемент соответствует условию (`some`)
 ```javascript
 var arr = [1, 2, 3, 4, 5];
 var result1 = arr.some(el => el > 3);
@@ -105,7 +137,9 @@ var result2 = arr.some(el => el > 7);
 console.log(result2); // false
 ```
 
-+ Сортировка массива (**sort**)
+<div id='sort' />
+
+### Сортировка массива (`sort`)
 ```javascript
 let arr = [4, 3, 2, 9, 3, 45, 5, 2];
 console.log(arr);
@@ -120,7 +154,9 @@ console.log(arr);
 
 Примечание 2. По умолчанию перед сравнением элементы приводятся к строке.
 
-+ Использование сортировки в цепочках (**sort**)
+<div id='sort-in-pipe' />
+
+### Использование сортировки в цепочках (`sort`)
 ```javascript
 const cities = [
     { name: 'Kaliningrad', population: 482443 },
@@ -144,7 +180,9 @@ console.log(cities);
 ```
 В обеих обработках результат одинаковый, но первая не изменяет исходный массив, т.к. `sort` применяется к копии массива, которую возвращает метод `filter`. Во втором случае `sort` применяется к исходному массиву, поэтому он будет изменён.
 
-+ Проверка нескольких условий (**includes**)
+<div id='includes' />
+
+### Проверка нескольких условий (`includes`)
 ```javascript
 let value = 'one';
 //let value = 'three';
@@ -165,7 +203,9 @@ if ([1, 'one', 2, 'two'].includes(value)) {
 }
 ```
 
-+ Спрямление вложенности (**flat**)
+<div id='flat' />
+
+### Спрямление вложенности (`flat`)
 
 Вложеные элементы "поднимаются" на несколько уровней вверх (по умолчанию – на один).
 
@@ -191,7 +231,9 @@ var result4 = arr4.flat(Infinity);
 console.log(result4); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
-+ Два в одном: `map` + `flat` (**flatMap**)
+<div id='flatMap' />
+
+### Два в одном: `map` + `flat` (`flatMap`)
 
 Сначала к набору применяется `map` (возможно указание объекта контекста), затем `flat` на один уровень.
 
@@ -212,7 +254,9 @@ let arr = [2, 3, 4].flatMap(el => [el, el]);
 console.log(arr); // [2, 2, 3, 3, 4, 4]
 ```
 
-+ Вычисление аггрегирующего значения (**reduce**)
+<div id='reduce' />
+
+### Вычисление аггрегирующего значения (`reduce`)
 
 Для всех элементов массива по очереди применяется операция с участием аккумулятора, при этом вычисленое значение становится новым значением аккумулятора.
 
